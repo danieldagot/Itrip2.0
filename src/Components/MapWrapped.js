@@ -33,7 +33,7 @@ import {
 
         return (
           <GoogleMap
-            defaultZoom={this.props.state.type === 'country' ? 9 : 17}
+            defaultZoom={this.props.state.types === 'country' ? 9 : 17}
             defaultCenter={{ lat:this.props.state.latLng.lat?this.props.state.latLng.lat:this.props.state.currentAddress.lat, lng:this.props.state.latLng.lng?this.props.state.latLng.lng:this.props.state.currentAddress.lng}}
             defaultOptions={{ styles: mapStyles }}
             >
