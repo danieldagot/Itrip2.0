@@ -21,7 +21,7 @@ class Home extends React.Component {
     this.state = {
       address: "",
       latLng: [],
-      type: '',
+      types: '',
       currentAddress: [],
       type: {
         Food: false,
@@ -60,7 +60,7 @@ class Home extends React.Component {
   handleSelect = address => {
     geocodeByAddress(address).then(results => {
         console.log(results[0].types[0]);
-        this.setState({ type: results[0].types[0]})
+        this.setState({ types: results[0].types[0]})
         return getLatLng(results[0]);
       }).then(latlng => {
         this.setState({ latLng: latlng }, function() {

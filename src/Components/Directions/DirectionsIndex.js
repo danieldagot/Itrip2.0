@@ -4,10 +4,8 @@ import DirectionRenderComponent from "./DirectionRenderComponent";
 import { G_API_URL } from "../../utility/constants";
 import DummyLocations from "../../utility/dummyLocations";
 import axios from "axios"
-const Fs = require('fs')
-const Path = require('path')
+
 const { withScriptjs, withGoogleMap, GoogleMap } = require("react-google-maps");
-const download = require('image-downloader')
 
 class Directions extends Component {
   createLatLngObject = latLng => {
