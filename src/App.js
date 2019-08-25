@@ -35,7 +35,7 @@ class App extends Component {
     this.setState({ popup: !this.popup })
   }
   async componentDidMount() {
-  await  this.props.user.loadUser()
+  await  this.props.user.fetchProjects()
   }
 
   render() {
