@@ -103,8 +103,19 @@ class Home extends React.Component {
 
     this.setState({ top: a.data, click: !this.state.click }, function() {
       console.log(this.state.top);
+
+    })
+
+
+
+  }
+  componentDidMount() {
+    this.props.user.loadUser()
+  }
+
     });
   };
+
   render() {
     this.getGeoLocation();
 
