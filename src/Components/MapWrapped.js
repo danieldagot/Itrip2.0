@@ -38,7 +38,7 @@ import {
             defaultOptions={{ styles: mapStyles }}
             >
 
-              {/* {this.props.state.latLng[0] !== undefined?  this.props.state.latLng[0].map(place => (
+              {this.props.state.top !== undefined?  this.props.state.top.map(place => (
               <Marker
                 position={{
                   lat: place.lat,
@@ -52,7 +52,7 @@ import {
                   scaledSize: new window.google.maps.Size(25, 25)
                 }}
               />
-            )):null} */}
+            )):null}
       
             {selectedPark && (
               <InfoWindow

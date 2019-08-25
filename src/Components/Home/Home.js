@@ -45,7 +45,6 @@ class Home extends React.Component {
     console.log(this.state.type);
 
     for (let i in this.state.type) {
-      console.log(i);
       if (i == interest) {
         console.log(i);
         this.state.type[i] = true;
@@ -78,14 +77,7 @@ class Home extends React.Component {
           lat: position.coords.latitude,
           lng: position.coords.longitude
         };
-        this.setState(
-          {
-            currentAddress: a
-          },
-          function() {
-            console.log(this.state.currentAddress);
-          }
-        );
+        this.setState({ currentAddress: a});
       });
     }
   };
