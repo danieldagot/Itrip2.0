@@ -16,6 +16,11 @@ import { KeyObject } from 'crypto';
 import Landing from "../Landing/Landing"
 import Axios from 'axios';
 import NavBarHotPlaces from "../NavBarHotPlaces"
+import { observer,inject } from 'mobx-react'
+@inject("user")
+@observer
+
+
 class Home extends React.Component {
   constructor() {
     super();
