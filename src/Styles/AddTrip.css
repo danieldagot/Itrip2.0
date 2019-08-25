@@ -1,0 +1,33 @@
+body{
+    position: absolute;
+}
+
+.addTrip {
+    margin-left: 1vw;
+    margin-top: 5vh;
+    margin-right: 5vh;    
+    display: inline;
+
+
+}
+#Country{
+    color:black;
+}
+/* #checkbox{
+    display: inline;
+} */
+
+.checkbox{
+    color:black;
+    margin-left: -40em;
+}
+#dataList{
+    margin-left: 70vh;
+}
+#popup{
+    background-repeat: no-repeat;
+    background-size: cover;
+    backface-visibility: 0.5;
+    background-image: url("https://previews.123rf.com/images/denphumi/denphumi1305/denphumi130500124/19911835-natural-green-spring-or-summer-season-abstract-nature-background.jpg")
+/* https://previews.123rf.com/images/denphumi/denphumi1305/denphumi130500124/19911835-natural-green-spring-or-summer-season-abstract-nature-background.jpg */
+}

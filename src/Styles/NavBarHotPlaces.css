@@ -1,0 +1,12 @@
+.all {
+    font-size: 2vh;
+    width: 20vw;
+    height: 80vh;
+    background-color: rgba(52, 134, 110, 0.795);
+    /* transition: width 0.5s; */
+    /* height: 100vh; */
+    display: grid;
+    grid-template-rows: repeat(6, 1fr);
+    margin-left: 140%;
+    margin-top: 5vh;
+ }

@@ -1,0 +1,46 @@
+#all{
+    width:40%;
+}
+ 
+.addTrip{
+    margin-left: 50%;
+
+}
+
+body{
+    background-image: linear-gradient(to top, #0ba360 0%, #3cba92 100%);
+ }
+
+ .button {
+    background-color: rgb(163, 154, 154);
+    color: black;
+    border: 0px solid rgb(98, 139, 100); /* Green */
+    border-radius: 6px;
+    
+  }
+  #ADD{
+      margin-left:100vh;
+  }
+   #mapW{
+     width: 80vw;
+     height: 80vh;
+     float: left;
+     z-index: -1;
+     margin-left: 0px;
+   }
+   #mapW2{
+    width: 100vw;
+    height: 80vh;
+    float: left;
+    z-index: -1;
+    margin-left: 0px;
+  }
+
+   #NavBarHotPlaces{
+    /* float: right; */
+    margin-left: 100%;
+   }
+
+   .btn-floating{
+       margin-right: 1vw;
+   }

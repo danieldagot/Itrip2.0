@@ -1,0 +1,103 @@
+body{
+  /* background: linear-gradient(to bottom, rgba(255,255,255,0.15) 0%, rgba(0,0,0,0.15) 100%), radial-gradient(at top center, rgba(255,255,255,0.40) 0%, rgba(0,0,0,0.40) 120%) #989898;  background-blend-mode: multiply,multiply; */
+  height: 100vh;
+  text-align: center;
+  background-image: url('https://previews.123rf.com/images/denphumi/denphumi1305/denphumi130500124/19911835-natural-green-spring-or-summer-season-abstract-nature-background.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+#MAIN{
+text-align: center;
+margin-top: -20vh;
+margin-left: 40vh;
+font-family: "Palatino Linotype";
+}
+.input {
+  width: 20vw;
+  color: rgb(25, 110, 25);
+  font-size: 4vh;
+  margin-left: 20px;
+}
+.input input::placeholder{
+font-size: 3vh;
+}
+.add{
+display:grid;
+grid-template-columns: repeat(2,1fr);
+margin-left: 40vh;
+font-family: "Palatino Linotype";
+}
+.button {
+  margin-left: 50vw;
+}
+#Continue{
+margin-left: 50%;
+font-family: "Palatino Linotype";
+}
+/*
+.container{
+  font-size: 5rem;
+}
+.table {
+  font-size: 1.5em;
+  font-family: PT Sans;
+  margin-left:35vw;
+} */
+.Error {
+  color: rgb(3, 82, 172);
+  font-size: 1rem;
+  font-weight: bold;
+}
+#MainTitle{
+font-family: "Palatino Linotype";
+font-weight: 600;
+}
+/*
+#healthChoice {
+  color: white;
+}
+#slideResult {
+  color: white;
+  font-size: 1rem;
+}
+ */
+/* .button{
+  height: 35px;
+  width: 100px;
+  border:none;
+  border-radius: 40px;
+  background-color: rgb(27, 149, 248);
+  color: white;
+  cursor: pointer;
+} */
+#heart {
+  color: rgb(196, 81, 81);
+  animation: heartbeat 1s infinite;
+}
+@keyframes heartbeat
+{
+  0%
+  {
+    transform: scale( .75 );
+  }
+  20%
+  {
+    transform: scale( 1 );
+  }
+  40%
+  {
+    transform: scale( .75 );
+  }
+  60%
+  {
+    transform: scale( 1 );
+  }
+  80%
+  {
+    transform: scale( .75 );
+  }
+  100%
+  {
+    transform: scale( .75 );
+  }
+}
