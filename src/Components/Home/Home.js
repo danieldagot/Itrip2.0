@@ -108,6 +108,9 @@ class Home extends React.Component {
 
 
   }
+  componentDidMount() {
+    this.props.user.loadUser()
+  }
   render() {
     this.getGeoLocation()
 
