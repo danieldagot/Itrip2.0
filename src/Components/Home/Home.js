@@ -1,27 +1,27 @@
-
-import React, { Component } from 'react';
-import GooglePlacesAutocomplete from 'react-google-places-autocomplete';
-import MapWrapped from '../MapWrapped'
-import MapPlaces from '../MapPlaces'
+import React, { Component } from "react";
+import GooglePlacesAutocomplete from "react-google-places-autocomplete";
+import MapWrapped from "../MapWrapped";
+import MapPlaces from "../MapPlaces";
 //import '../styles/Option.css'
-import '../../Styles/Home.css'
+import "../../Styles/Home.css";
 
 import PlacesAutocomplete, {
   geocodeByAddress,
-  getLatLng,
-} from 'react-places-autocomplete';
-import AddTrip from './AddTrip'
-import MyTrips from '../MyTrips';
-import { KeyObject } from 'crypto';
-import Landing from "../Landing/Landing"
-import Axios from 'axios';
-import NavBarHotPlaces from "../NavBarHotPlaces"
+  getLatLng
+} from "react-places-autocomplete";
+import AddTrip from "./AddTrip";
+import MyTrips from "../MyTrips";
+import { KeyObject } from "crypto";
+import Landing from "../Landing/Landing";
+import Axios from "axios";
+import NavBarHotPlaces from "../NavBarHotPlaces";
 class Home extends React.Component {
   constructor() {
     super();
     this.state = {
-      address: '',
+      address: "",
       latLng: [],
+      type: '',
       currentAddress: [],
       type: {
         Food: false,
@@ -34,112 +34,114 @@ class Home extends React.Component {
       popup: false,
       top: [],
       click: false
-    }
+    };
   }
 
   popup = () => {
-    this.setState({ popup: !this.state.popup })
-  }
-  changeType = (interest) => {
+    this.setState({ popup: !this.state.popup });
+  };
+  changeType = interest => {
     console.log(interest);
     console.log(this.state.type);
 
     for (let i in this.state.type) {
-      console.log(i)
+      console.log(i);
       if (i == interest) {
         console.log(i);
-        this.state.type[i] = true
-        console.log(this.state.type)
+        this.state.type[i] = true;
+        console.log(this.state.type);
       }
     }
-  }
+  };
 
   handleChange = address => {
-    this.setState({ address }, function () { })
-  }
+    this.setState({ address }, function() {});
+  };
 
   handleSelect = address => {
-    geocodeByAddress(address)
-      .then(results => getLatLng(results[0]))
-      .then(latlng => {
-        this.setState({ latLng: latlng }, function () {
-          console.log(this.state)
-
-        })
-        console.log('Success', latlng)
+    geocodeByAddress(address).then(results => {
+        console.log(results[0].types[0]);
+        this.setState({ type: results[0].types[0]})
+        return getLatLng(results[0]);
+      }).then(latlng => {
+        this.setState({ latLng: latlng }, function() {
+          console.log(this.state);
+        });
       })
-      .catch(error => console.error('Error', error))
-  }
+      .catch(error => console.error("Error", error));
+  };
 
   getGeoLocation = () => {
     if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(
-        position => {
-          let a = {
-            lat: position.coords.latitude,
-            lng: position.coords.longitude
-          }
-          this.setState({
+      navigator.geolocation.getCurrentPosition(position => {
+        let a = {
+          lat: position.coords.latitude,
+          lng: position.coords.longitude
+        };
+        this.setState(
+          {
             currentAddress: a
-          }, function () {
-            console.log(this.state.currentAddress)
-          })
-        }
-      )
+          },
+          function() {
+            console.log(this.state.currentAddress);
+          }
+        );
+      });
     }
-  }
+  };
 
   moveToComp = () => {
     console.log("here");
 
-    window.location.pathname = '/MyTrip'
-
-  }
+    window.location.pathname = "/MyTrip";
+  };
   getNav = async () => {
     console.log(this.state);
 
-    let a = await Axios.put("http://localhost:8080/GooglePlaces", this.state)
+    let a = await Axios.put("http://localhost:8080/GooglePlaces", this.state);
     console.log(a.data);
 
-    this.setState({ top: a.data, click: !this.state.click }, function () {
+    this.setState({ top: a.data, click: !this.state.click }, function() {
       console.log(this.state.top);
-    })
-
-
-
-  }
+    });
+  };
   render() {
-    this.getGeoLocation()
+    this.getGeoLocation();
 
     return (
-      <div id="all" >
+      <div id="all">
         <PlacesAutocomplete
           value={this.state.address}
           onChange={this.handleChange}
           onSelect={this.handleSelect}
         >
-          {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
-            <div >
+          {({
+            getInputProps,
+            suggestions,
+            getSuggestionItemProps,
+            loading
+          }) => (
+            <div>
               <input
                 {...getInputProps({
-                  placeholder: 'Search Places ...',
-                  className: 'location-search-input',
+                  placeholder: "Search Places ...",
+                  className: "location-search-input"
                 })}
               />
               <div className="autocomplete-dropdown-container">
                 {loading && <div>Loading...</div>}
                 {suggestions.map(suggestion => {
                   const className = suggestion.active
-                    ? 'suggestion-item--active'
-                    : 'suggestion-item';
+                    ? "suggestion-item--active"
+                    : "suggestion-item";
                   const style = suggestion.active
-                    ? { backgroundColor: '#fafafa', cursor: 'pointer' }
-                    : { backgroundColor: '#ffffff', cursor: 'pointer' };
+                    ? { backgroundColor: "#fafafa", cursor: "pointer" }
+                    : { backgroundColor: "#ffffff", cursor: "pointer" };
                   return (
                     <div
                       {...getSuggestionItemProps(suggestion, {
                         className,
-                        style,
+                        style
                       })}
                     >
                       <span>{suggestion.description}</span>
@@ -150,27 +152,40 @@ class Home extends React.Component {
             </div>
           )}
         </PlacesAutocomplete>
-        <a onClick={this.popup} id="ADD" class="btn-floating btn-large waves-effect waves-light green"><i class="material-icons">add</i></a>
+        <a
+          onClick={this.popup}
+          id="ADD"
+          class="btn-floating btn-large waves-effect waves-light green"
+        >
+          <i class="material-icons">add</i>
+        </a>
 
-        {this.state.popup ? <AddTrip changeType={this.changeType} handleChange={this.handleChange} handleSelect={this.handleSelect} /> : null}
-        <div id={this.state.click ? 'mapW' : 'mapW2'}>
-          <span> <MapWrapped state={this.state} />
-
-            <a onClick={this.getNav} className="btn-floating grey lighten-1 all2"><i className="material-icons">format_align_right</i></a>
-            {this.state.click ? <NavBarHotPlaces data={this.state.top} /> : null}
+        {this.state.popup ? (
+          <AddTrip
+            changeType={this.changeType}
+            handleChange={this.handleChange}
+            handleSelect={this.handleSelect}
+          />
+        ) : null}
+        <div id={this.state.click ? "mapW" : "mapW2"}>
+          <span>
+            {" "}
+            <MapWrapped state={this.state} />
+            <a
+              onClick={this.getNav}
+              className="btn-floating grey lighten-1 all2"
+            >
+              <i className="material-icons">format_align_right</i>
+            </a>
+            {this.state.click ? (
+              <NavBarHotPlaces data={this.state.top} />
+            ) : null}
           </span>
-
         </div>
-
-
       </div>
     );
   }
 }
 //data = {this.state.top}
 
-
-
-
 export default Home;
-
