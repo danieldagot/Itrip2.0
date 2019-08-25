@@ -8,6 +8,7 @@ class InterestLanding extends Component {
     constructor() {
         super()
         this.state = {
+       
             data: {
                 Food: false,
                 Extreme: false,
@@ -25,10 +26,10 @@ class InterestLanding extends Component {
         let url = event.target.getAttribute("val")
         let data2 = this.state
         data2[url] = !data2[url]
+        
 
-        this.setState({ data: data2 }, function () {
-            //console.log(this.state.data);
-        })
+        this.setState({ data: data2 })
+      
     }
     next = async () => {
         //let interest = this.state.map(f => f != false)
@@ -70,12 +71,12 @@ class InterestLanding extends Component {
 
                 </div>
                 <div className='allPlaces'>
-                    <div onClick={this.cliced} val='Food' className='Food'> Food </div>
-                    <div onClick={this.cliced} val='Extreme' className='Extreme'> Extreme </div>
-                    <div onClick={this.cliced} val='Nature' className='Nature'> Nature </div>
-                    <div onClick={this.cliced} val='Art' className='Art'> Art </div>
-                    <div onClick={this.cliced} val='Night' className='Night'> Night Life </div>
-                    <div onClick={this.cliced} val='Beauty' className='Beauty'> Beauty </div>
+                    <div onClick={this.cliced} val='Food' className={this.state.data.Food?'Food2':'Food'}> Food </div>
+                    <div onClick={this.cliced} val='Extreme' className={this.state.data.Extreme?'Extreme2':'Extreme'}> Extreme </div>
+                    <div onClick={this.cliced} val='Nature' className={this.state.data.Nature?'Nature2':'Nature'}> Nature </div>
+                    <div onClick={this.cliced} val='Art' className={this.state.data.Art?'Art2':'Art'}> Art </div>
+                    <div onClick={this.cliced} val='Night' className={this.state.data.Night?'Night2':'Night'}> Night Life </div>
+                    <div onClick={this.cliced} val='Beauty' className={this.state.data.Beauty?'Beauty2':'Beauty'}> Beauty </div>
                 </div>
                 <button onClick={this.next} id= "Next" class="btn waves-effect waves-light" type="submit" name="action">Next
    <i class="material-icons right">send</i>

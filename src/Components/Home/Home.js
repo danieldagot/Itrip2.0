@@ -17,7 +17,7 @@ import Axios from "axios";
 import NavBarHotPlaces from "../NavBarHotPlaces";
 class Home extends React.Component {
   constructor() {
-    super();
+    super()
     this.state = {
       address: "",
       latLng: [],
