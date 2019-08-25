@@ -7,12 +7,17 @@ import {
   InfoWindow
 } from "react-google-maps";
   import mapStyles from "../mapStyles";
+  import "../Styles/Home.css";
+
 
 
   class mapWrapped extends Component {
     constructor() {
         super()
         this.state = {
+          latInfo:0,
+          lngInfo:0,
+          nameInfo:''
         }
     }
     
@@ -37,12 +42,13 @@ import {
             defaultCenter={{ lat:this.props.state.latLng.lat?this.props.state.latLng.lat:this.props.state.currentAddress.lat, lng:this.props.state.latLng.lng?this.props.state.latLng.lng:this.props.state.currentAddress.lng}}
             defaultOptions={{ styles: mapStyles }}
             >
-
-              {this.props.state.top !== undefined?  this.props.state.top.map(place => (
+              {this.props.state.top !== undefined?  this.props.state.top.map(place => 
+           
+              (
               <Marker
                 position={{
-                  lat: place.lat,
-                  lng: place.lng
+                  lat: place.geometry.location.lat,
+                  lng: place.geometry.location.lng
                 }}
                 onClick={() => {
                   setSelectedPark(place);
@@ -51,31 +57,33 @@ import {
                   url: `/skateboarding.svg`,
                   scaledSize: new window.google.maps.Size(25, 25)
                 }}
+                
               />
-            )):null}
-      
-            {selectedPark && (
-              <InfoWindow
+            )
+            ):null}
+           {selectedPark? <InfoWindow
+              onClick={this.openWindow}
                 onCloseClick={() => {
                   setSelectedPark(null);
                 }}
                 position={{
-                  lat: this.props.state.latLng.lat,
-                  lng: this.props.state.latLng.lng
+                  lat: selectedPark.geometry.location.lat,
+                  lng: selectedPark.geometry.location.lng
                 }}
               >
                 <div>
-                  <h2>{this.props.state.address}</h2>
+                  <h2 id="infoWindow">{selectedPark.name}</h2>
                   {/* <p>{selectedPark.properties.DESCRIPTIO}</p> */}
                 </div>
-              </InfoWindow>
-            )}
+              </InfoWindow>: null
+             }
           </GoogleMap>
         );
       }
       
     
-    render() {        
+    render() { 
+       
         const MapWrapped = withScriptjs(withGoogleMap(this.Map));
         return (
             <MapWrapped

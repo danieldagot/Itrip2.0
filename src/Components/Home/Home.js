@@ -165,8 +165,8 @@ class Home extends React.Component {
             <MapWrapped state={this.state} />
             <a
               onClick={this.getNav}
-              className="btn-floating grey lighten-1 all2"
-            >
+              id="navBar"
+              className="btn-floating grey lighten-1 all2">
               <i className="material-icons">format_align_right</i>
             </a>
             {this.state.click ? (
@@ -178,6 +178,5 @@ class Home extends React.Component {
     );
   }
 }
-//data = {this.state.top}
 
 export default Home;

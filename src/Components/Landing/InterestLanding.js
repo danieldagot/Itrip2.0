@@ -77,7 +77,7 @@ class InterestLanding extends Component {
                     <div onClick={this.cliced} val='Night' className='Night'> Night Life </div>
                     <div onClick={this.cliced} val='Beauty' className='Beauty'> Beauty </div>
                 </div>
-                <button onClick={this.next} id= "Next" class="btn waves-effect waves-light" type="submit" name="action">Naxt
+                <button onClick={this.next} id= "Next" class="btn waves-effect waves-light" type="submit" name="action">Next
    <i class="material-icons right">send</i>
  </button>
             </div >
