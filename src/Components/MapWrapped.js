@@ -33,9 +33,10 @@ import {
 
         return (
           <GoogleMap
-            defaultZoom={10}
+            defaultZoom={this.props.state.type === 'country' ? 9 : 17}
             defaultCenter={{ lat:this.props.state.latLng.lat?this.props.state.latLng.lat:this.props.state.currentAddress.lat, lng:this.props.state.latLng.lng?this.props.state.latLng.lng:this.props.state.currentAddress.lng}}
-            defaultOptions={{ styles: mapStyles }}>
+            defaultOptions={{ styles: mapStyles }}
+            >
 
               {/* {this.props.state.latLng[0] !== undefined?  this.props.state.latLng[0].map(place => (
               <Marker
@@ -82,8 +83,13 @@ import {
             loadingElement={<div style={{ height: `100%` }} />}
             containerElement={<div style={{ height: `100%` }} />}
             mapElement={<div style={{ height: `100%` }} />}
+      
           />
         )
+    }
+
+    testChange( param1, param2 ) {
+      console.log( param1, param2 )
     }
 }
 
