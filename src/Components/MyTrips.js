@@ -26,13 +26,23 @@ class MyTrips extends Component {
     }
 
     type = (obj) => {
+        let interest=[]
         for (const key in obj["type"]) {
-            console.log(obj["type"])
-            console.log(key)
-            if (key==true) {
-               return console.log(key)
+            if (obj["type"][key]) {
+              interest.push(<div>{key}</div>)
             }
        }
+       return interest
+    }
+
+    top = (obj) => {
+        let Top=[]
+        for (const key in obj["top"]) {
+            if (obj["top"][key]) {
+               Top.push(<div>{(obj["top"][key]["name"])}</div>)
+            }
+       }
+       return Top
     }
 
    render() {
@@ -40,22 +50,20 @@ class MyTrips extends Component {
        return (
           <div>
                <div className='titleMyTrip'>Here You can manage all your trips and update:</div>
-               <div  className='Trips'>
-               <div className='trip'>
                     <div className='tripTitle' >
                     {trip.map(m=>
-                    <div>
-                    <div>{m.address}</div>
-                    <div>{this.type(m)}</div>
+                      <div  className='Trips'>
+                      <div className='trip'>
+                    <h4>{m.address}</h4>
+                    <h5>Your interest</h5>
+                    <div className="interest">{this.type(m)}</div>
+                    <h5>Your places</h5>
+                    <div>{this.top(m)}</div>
                     <a className="waves-effect waves-light btn-small"><i class="fas fa-route"></i>  Start Travel! to {m.address}</a>
                     </div>
+               </div>
                     )}
                     </div>
-                    {/* <div>{trip.map(m=><div>{m.type}</div>)} </div> */}
-             {/* <h2 className='infoPlaces'>places : {trip.map(m => <span>{m.top.map(m=><div>{m}</div>)} , </span>)}</h2> */}
-             {/* <div>Date you choose to trvel: {trip.dates}</div> */}
-             </div>
-               </div>
           </div>
        );
    }

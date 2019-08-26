@@ -8,6 +8,7 @@ import {
 } from "react-google-maps";
   import mapStyles from "../mapStyles";
   import "../Styles/Home.css";
+  import axios from 'axios';
 
 
 
@@ -21,6 +22,13 @@ import {
         }
     }
     
+ disc=async(p)=>{
+  let p2 = p.replace(" " ,"_")
+  console.log(p2)
+  let data = await axios.get(`http://localhost:8080//wikipedia/${p2}`)
+  console.log(data)
+  // return <div>{data.short}</div>
+}
      Map=()=> {
         const [selectedPark, setSelectedPark] = useState(null);
         useEffect(() => {
@@ -73,6 +81,7 @@ import {
               >
                 <div>
                   <h2 id="infoWindow">{selectedPark.name}</h2>
+                  <h2>{this.disc(selectedPark.name)}</h2>
                   {/* <p>{selectedPark.properties.DESCRIPTIO}</p> */}
                 </div>
               </InfoWindow>: null
