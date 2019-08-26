@@ -113,6 +113,14 @@ class Home extends React.Component {
 
 
   }
+
+
+
+
+
+
+
+
   componentDidMount() {
     this.props.user.fetchProjects()
   }
@@ -165,7 +173,7 @@ class Home extends React.Component {
           <span> <MapWrapped state={this.state} />
 
             <a onClick={this.getNav} className="btn-floating grey lighten-1 all2"><i className="material-icons">format_align_right</i></a>
-            {this.state.click ? <NavBarHotPlaces data={this.state.top} /> : null}
+            {this.state.click ? <NavBarHotPlaces data={this.state}  /> : null}
           </span>
         </div>
 
