@@ -17,7 +17,11 @@ import { KeyObject } from 'crypto';
 
 import Axios from 'axios';
 import NavBarHotPlaces from "./NavBarHotPlaces"
- 
+import { observer, inject } from 'mobx-react'
+@inject("user")
+@observer
+
+
 class Test extends React.Component {
   constructor() {
     super();
@@ -68,12 +72,17 @@ class Test extends React.Component {
 
   }
 
+  
+
+
   popup = () => {
     this.setState({ popup: !this.state.popup })
   }
   changeType = (interest) => {
     console.log(interest);
     console.log(this.state.type);
+
+
 
     for (let i in this.state.type) {
       console.log(i)
@@ -124,6 +133,15 @@ class Test extends React.Component {
         }
       )
     }
+  }
+
+
+ async componentDidUpdate() {
+    console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
+    let Test = this.props.user.user
+  console.log( Test);
+  
+
   }
 
   moveToComp = () => {

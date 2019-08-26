@@ -1,6 +1,6 @@
 import { observable, computed, action } from 'mobx'
 import axios from "axios"
-export class Item {
+export  class User {
   @observable user = {}
 
   @action loadUser = async () => {
