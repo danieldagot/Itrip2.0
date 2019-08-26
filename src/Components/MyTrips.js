@@ -16,14 +16,24 @@ class MyTrips extends Component {
        }
    }
 
+
    async componentDidMount() {
     await  this.props.user.fetchProjects()
-    this.setState({trips: this.props.user.user},function(){
+    this.setState({trips: this.props.user.user.Trips},function(){
         console.log(this.state.trips)
     })
     
     }
-  
+
+    type = (obj) => {
+        for (const key in obj["type"]) {
+            console.log(obj["type"])
+            console.log(key)
+            if (key==true) {
+               return console.log(key)
+            }
+       }
+    }
 
    render() {
        let trip = this .state.trips
@@ -32,11 +42,18 @@ class MyTrips extends Component {
                <div className='titleMyTrip'>Here You can manage all your trips and update:</div>
                <div  className='Trips'>
                <div className='trip'>
-                    <div className='tripTitle' >{trip.Country}</div>
-                    {/* <div>{trip.Interest.map(m=><div>{m}</div>)} </div> */}
-             {/* <h2 className='infoPlaces'>places : {trip.places.map(place => <span>{place} , </span>)}</h2> */}
+                    <div className='tripTitle' >
+                    {trip.map(m=>
+                    <div>
+                    <div>{m.address}</div>
+                    <div>{this.type(m)}</div>
+                    <a className="waves-effect waves-light btn-small"><i class="fas fa-route"></i>  Start Travel! to {m.address}</a>
+                    </div>
+                    )}
+                    </div>
+                    {/* <div>{trip.map(m=><div>{m.type}</div>)} </div> */}
+             {/* <h2 className='infoPlaces'>places : {trip.map(m => <span>{m.top.map(m=><div>{m}</div>)} , </span>)}</h2> */}
              {/* <div>Date you choose to trvel: {trip.dates}</div> */}
-             <a class="waves-effect waves-light btn-small"><i class="fas fa-route"></i>  Start Travel!</a>
              </div>
                </div>
           </div>

@@ -19,7 +19,7 @@ const wikiApi = require('./wikiApi')
 
 let Interest = {
     Night: ["bar", "night_club", "casino"],
-    Exstrim: ["amusement_park"],
+    Extreme: ["amusement_park"],
     Food: ["cafe", "restaurant"],
     Nature: ["park", "aquarium", "zoo"],
     Beauty: ["beauty_salon", "spa", "jewelry_store"],
@@ -50,10 +50,10 @@ router.post('/addUser', (req, res) => {
 router.put('/GooglePlaces', async (req, res) => {
 
     let state = req.body
-
+console.log(state)
     let interest = []
     for (const key in state.type) {
-        if (state.type[key] && key != "data") {
+        if (state.type[key] ) {
             interest.push(key)
         }
     }

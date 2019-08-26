@@ -12,11 +12,12 @@ class AddTrip extends Component {
   }
 
   handleChange = e => {
-    this.props.handleSelect(e.target.value)
+    this.props.handleChange(e.target.value)
   }
 
   handleSelect = e => {
     this.props.handleSelect(e.target.value)
+
 }
 
   changeHome = e => {
@@ -59,37 +60,37 @@ class AddTrip extends Component {
                 <p>
                   <label for="chk-demo1" onClick={this.changeHome}>
                     <input type="checkbox" id="chk-demo1" />
-                    <span className="checkbox">Extreme</span>
+                    <span  id="Extreme" className="checkbox">Extreme</span>
                   </label>
                 </p>
                 <p>
                   <label for="chk-demo2" onClick={this.changeHome}>
                     <input type="checkbox" id="chk-demo2" />
-                    <span className="checkbox">Nature</span>
+                    <span id="Nature" className="checkbox">Nature</span>
                   </label>
                 </p>
                 <p>
                   <label for="chk-demo3" onClick={this.changeHome}>
                     <input type="checkbox" id="chk-demo3" />
-                    <span className="checkbox">Beauty</span>
+                    <span id="Beauty" className="checkbox">Beauty</span>
                   </label>
                 </p>
                 <p>
                   <label for="chk-demo4" onClick={this.changeHome}>
                     <input type="checkbox" id="chk-demo4" />
-                    <span className="checkbox">Art</span>
+                    <span id="Art" className="checkbox">Art</span>
                   </label>
                 </p>
                 <p>
                   <label for="chk-demo5" onClick={this.changeHome}>
                     <input type="checkbox" id="chk-demo5" />
-                    <span className="checkbox">Night</span>
+                    <span id="Night" className="checkbox">Night</span>
                   </label>
                 </p>
                 <p>
                   <label for="chk-demo5" onClick={this.changeHome}>
                     <input type="checkbox" />
-                    <span className="checkbox">Food</span>
+                    <span id="Food" className="checkbox">Food</span>
                   </label>
                 </p>
               </div>

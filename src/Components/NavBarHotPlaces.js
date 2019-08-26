@@ -17,6 +17,7 @@ class NavBarHotPlaces extends Component { //now will be the navBar
     console.log(user.Trips);
     
     let a = await Axios.put(`http://localhost:8080/addTrip/${userName}`, user)
+    return(a.data)
       }
    
    render() {
