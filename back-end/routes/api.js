@@ -66,6 +66,7 @@ router.put('/GooglePlaces', async (req, res) => {
     console.log(a);
     state.type = a
 
+    
     let data = await GooglePlaces(state)
 
     let f = data.results.map(m => { return { name: m.name, value: m.rating ,geometry : m.geometry } })

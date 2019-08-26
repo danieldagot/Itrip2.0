@@ -44,11 +44,11 @@ class App extends Component {
     return (<Router>
       <div>
         <nav>
-          <div class="nav-wrapper">
+          <div className="nav-wrapper">
 
-            <a href="#" class="brand-logo right"><img src='https://media.giphy.com/media/h81EQBKGXH8L5i3nv3/giphy.gif' width='150px' height='70px'></img></a>
+            <a href="#" className="brand-logo right"><img src='https://media.giphy.com/media/h81EQBKGXH8L5i3nv3/giphy.gif' width='150px' height='70px'></img></a>
 
-            <ul id="nav-mobile" class="left hide-on-med-and-down">
+            <ul id="nav-mobile" className="left hide-on-med-and-down">
               <li> <Link to="/">Home</Link></li>
               <li><Link to="/MyTrips">My Trips</Link></li>
               <li><Link to="/DiscoverPlaces">Discover Places</Link></li>
