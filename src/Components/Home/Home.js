@@ -7,14 +7,19 @@ import "../../Styles/Home.css";
 
 import PlacesAutocomplete, {
   geocodeByAddress,
-  getLatLng
-} from "react-places-autocomplete";
-import AddTrip from "./AddTrip";
-import MyTrips from "../MyTrips";
-import { KeyObject } from "crypto";
-import Landing from "../Landing/Landing";
-import Axios from "axios";
-import NavBarHotPlaces from "../NavBarHotPlaces";
+  getLatLng,
+} from 'react-places-autocomplete';
+import AddTrip from './AddTrip'
+import MyTrips from '../MyTrips';
+import { KeyObject } from 'crypto';
+import Landing from "../Landing/Landing"
+import Axios from 'axios';
+import NavBarHotPlaces from "../NavBarHotPlaces"
+import { observer,inject } from 'mobx-react'
+@inject("user")
+@observer
+
+
 class Home extends React.Component {
   constructor() {
     super();
@@ -103,8 +108,18 @@ class Home extends React.Component {
 
     this.setState({ top: a.data, click: !this.state.click }, function() {
       console.log(this.state.top);
-    });
-  };
+
+    })
+
+
+
+  }
+  async componentDidMount() {
+   this.props.user.fetchProjects()
+  }
+
+    
+
   render() {
     this.getGeoLocation();
 

@@ -12,13 +12,15 @@ import MyTrips from './Components/MyTrips'
 import DiscoverPlaces from './Components/DiscoverPlaces'
 import MyProgress from './Components/MyProgress'
 import AddTrip from './Components/Home/AddTrip'
-
-import { observer } from 'mobx-react'
+import { observer,inject } from 'mobx-react'
 import Test from "./Components/test";
 
-
 var dotenv = require('dotenv')
+@inject("user")
 @observer
+
+
+
 
 class App extends Component {
 
@@ -31,6 +33,9 @@ class App extends Component {
 
   popup = () => {
     this.setState({ popup: !this.popup })
+  }
+  async componentDidMount() {
+  await  this.props.user.fetchProjects()
   }
 
   render() {
