@@ -22,14 +22,13 @@ class MyTrips extends Component {
     this.setState({trips: this.props.user.user.Trips},function(){
         console.log(this.state.trips)
     })
-    
     }
 
     type = (obj) => {
         let interest=[]
         for (const key in obj["type"]) {
             if (obj["type"][key]) {
-              interest.push(<div>{key}  <br></br><i class="fas fa-plus"></i> <i class="fas fa-minus"></i></div>)
+              interest.push(<div>{key}  <br></br><i id="plus" class="fas fa-plus"></i> <i id="minus" class="fas fa-minus"></i></div>)
             }
        }
        return interest
@@ -63,7 +62,7 @@ class MyTrips extends Component {
                   
 
                     </div>
-                    <a className="waves-effect waves-light btn-small"><i class="fas fa-route"></i>  Start Travel! to {m.address}</a>
+                    <a className="waves-effect waves-light btn-small"><i class="fas fa-route"></i>  Start Travel to {m.address}</a>
                     </div>
                     )}
                     </div>
