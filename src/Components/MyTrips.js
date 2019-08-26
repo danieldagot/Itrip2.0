@@ -29,7 +29,7 @@ class MyTrips extends Component {
         let interest=[]
         for (const key in obj["type"]) {
             if (obj["type"][key]) {
-              interest.push(<div>{key}</div>)
+              interest.push(<div>{key}  <br></br><i class="fas fa-plus"></i> <i class="fas fa-minus"></i></div>)
             }
        }
        return interest
@@ -39,7 +39,7 @@ class MyTrips extends Component {
         let Top=[]
         for (const key in obj["top"]) {
             if (obj["top"][key]) {
-               Top.push(<div>{(obj["top"][key]["name"])}</div>)
+               Top.push(<div>{(obj["top"][key]["name"])}  <br></br><i class="fas fa-plus"></i> <i class="fas fa-minus"></i></div>)
             }
        }
        return Top
@@ -51,18 +51,22 @@ class MyTrips extends Component {
           <div>
                <div className='titleMyTrip'>Here You can manage all your trips and update:</div>
                     <div className='tripTitle' >
+                        <div  className='Trips'>
                     {trip.map(m=>
-                      <div  className='Trips'>
                       <div className='trip'>
                     <h4>{m.address}</h4>
+                    <div id="grid">
                     <h5>Your interest</h5>
-                    <div className="interest">{this.type(m)}</div>
                     <h5>Your places</h5>
-                    <div>{this.top(m)}</div>
+                    <div className="interest">{this.type(m)}</div>
+                    <div className="places">{this.top(m)}</div>
+                  
+
+                    </div>
                     <a className="waves-effect waves-light btn-small"><i class="fas fa-route"></i>  Start Travel! to {m.address}</a>
                     </div>
-               </div>
                     )}
+                    </div>
                     </div>
           </div>
        );

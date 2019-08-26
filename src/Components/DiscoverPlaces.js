@@ -17,11 +17,13 @@ class DiscoverPlaces extends Component {
  }
   getData = async () => {
      let country = this.state.address
+     country.replace(" ","_")
      console.log(this.state.address)
      let response= await axios.get(`http://localhost:8080/wikipedia/${country}`)
-      let data =JSON.stringify(response.data[2])
-       let array = data.split('.').slice(10).join('')
-      this.setState({ data: array }, function () {
+     console.log(response);
+     
+      let data =response.data["short"]
+      this.setState({ data: data }, function () {
       // console.log(this.state.data)
   })
    }
