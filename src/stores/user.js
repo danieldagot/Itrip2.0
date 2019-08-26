@@ -15,9 +15,9 @@ export class User {
       // after await, modifying state again, needs an actions:
       runInAction(() => {
         this.state = "done"
-        console.log(data.data);
+        // console.log(data.data);
         this.user = data.data
-        console.log(this.user.Age);
+        // console.log(this.user.Age);
 
       })
     } catch (error) {
