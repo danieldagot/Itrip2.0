@@ -2,7 +2,12 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 import '../Styles/MyTrips.css'
 import Test from "./test"
+import { observer,inject } from 'mobx-react'
 const contries = require("../country-by-name")
+@observer
+
+@inject("user")
+
 class MyTrips extends Component {
 
    constructor() {

@@ -3,9 +3,26 @@ body{
   height: 100vh;
   text-align: center;
 
-	background:url(https://images.pexels.com/photos/210186/pexels-photo-210186.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);  background-repeat: no-repeat;
+  
+  background:url(https://images.pexels.com/photos/210186/pexels-photo-210186.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940) ;  background-repeat: no-repeat;
+  /* opacity:0.5; */
+
   background-size: cover;
 }
+
+.allLandind{
+  opacity:1;
+  position:absolute;
+  top:0;
+  bottom:0;
+  right:0;
+  left:0;
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index:-1;
+}
+
+
 #MAIN{
 text-align: center;
 margin-top: -20vh;
