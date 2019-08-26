@@ -18,31 +18,18 @@ import { KeyObject } from 'crypto';
 import Axios from 'axios';
 import NavBarHotPlaces from "./NavBarHotPlaces"
 import { observer, inject } from 'mobx-react'
-@inject("user")
 @observer
+@inject("user")
+
 
 
 class Test extends React.Component {
   constructor() {
     super();
     this.state = {
-      address: '',
-      latLng: [],
-      currentAddress: [],
-      type: {
-        Food: false,
-        Extream: false,
-        Nature: false,
-        Art: false,
-        Night: false,
-        Beauty: false
-      },
-      popup: false,
-      top: [],
-      popup2: false,
-      user: {},
-      trip: false
-    }
+      user : {} ,
+      bool : false
+     }
   }
 
 
@@ -89,7 +76,7 @@ class Test extends React.Component {
       if (i == interest) {
         console.log(i);
         this.state.type[i] = true
-        console.log(this.state.type);
+        console.log(this.staAte.type);
 
       }
 
@@ -163,17 +150,26 @@ class Test extends React.Component {
 
 
   }
-  componentDidMount() {
-    this.getUser()
+  async componentDidMount() {
+    //this.getUser()
+    await  this.props.user.fetchProjects()
+    this.setState({user : this.props.user.user},function(){
+      console.log(this.state.user.Trips[0].top);
+      
+    })
+    this.setState({bool : true},function(){
+      console.log(this.state.user.Trips[0].top);
+      
+    })
   }
   render() {
     this.getGeoLocation()
-    console.log(this.props.user.getTop())
+
 
     return (
       <div id="all" >
 
-        {this.props.user.top ? <Directions data={this.props.user.top} /> : null}
+        {this.state.bool ?   <Directions data={this.state.user.Trips[3].top} /> : null}
       </div>
     );
   }
@@ -184,3 +180,7 @@ class Test extends React.Component {
 
 export default Test;
 
+// {this.state.bool ? this.state.user.Trip ? this.state.user.Trip.map(t => {
+//   console.log('ani daniel ve ani efes')
+//   return <Directions data={t.top} />
+// }) : null : null}

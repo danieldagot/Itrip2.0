@@ -124,7 +124,9 @@ class Home extends React.Component {
 
 
   async componentDidMount() {
+    console.log(this.props.user)
     await  this.props.user.fetchProjects()
+    
     }
   render() {
     this.getGeoLocation()
@@ -196,7 +198,7 @@ class Home extends React.Component {
               <i className="material-icons">format_align_right</i>
             </a>
             {this.state.click ? (
-              <NavBarHotPlaces data={this.state.top} />
+              <NavBarHotPlaces data={this.state} />
             ) : null}
           </span>
         </div>

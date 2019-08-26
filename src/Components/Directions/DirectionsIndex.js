@@ -4,7 +4,6 @@ import DirectionRenderComponent from "./DirectionRenderComponent";
 import { G_API_URL } from "../../utility/constants";
 import DummyLocations from "../../utility/dummyLocations";
 import axios from "axios"
-
 const { withScriptjs, withGoogleMap, GoogleMap } = require("react-google-maps");
 
 class Directions extends Component {
@@ -28,7 +27,7 @@ class Directions extends Component {
   };
 
   start = () => {
-    console.log(DummyLocations);
+    console.log("DummyLocations");
 
     let lcation = []
 
@@ -63,7 +62,7 @@ class Directions extends Component {
     let data = await axios.get(`http://localhost:8080/user/${userName}`)
     let user = data.data
     let trip = { direction: this.props.data, center: this.props.center }
-     user.Trips.push(trip)
+    user.Trips.push(trip)
     console.log(userName);
     let a = await axios.put(`http://localhost:8080/addTrip/${userName}`, user)
   }
@@ -73,12 +72,12 @@ class Directions extends Component {
     const userName = localStorage.getItem("user")
 
     let data = await axios.get(`http://localhost:8080/user/${userName}`)
-    const user =   JSON.parse(data.data)
-    const trip = { direction: this.props.data, center: this.props.center }
-     //user.Trip = trip
+    let user = data.data
+    let trip = { direction: this.props.data, center: this.props.center }
+    user.Trip = trip
     console.log(userName);
     let a = await axios.put(`http://localhost:8080/addTrip/${userName}`, user)
-   
+    window.location.pathname = '/Home'
   }
   stopTrip = async () => {
     const userName = localStorage.getItem("user")
@@ -86,15 +85,17 @@ class Directions extends Component {
     let data = await axios.get(`http://localhost:8080/user/${userName}`)
     let user = data.data
     let trip = {}
-     //user.Trip = trip
+    user.Trip = trip
     console.log(userName);
     let a = await axios.put(`http://localhost:8080/addTrip/${userName}`, user)
-
+    window.location.pathname = '/Home'
+  }
+  componentDidMount(){
+    this.start()
   }
   //.mep( m => m )
-  componentDidMountF() { this.start() }
   render() {
-
+   
 
     return (
       <div>
@@ -103,7 +104,7 @@ class Directions extends Component {
         <button onClick={this.startTrip}>STOOP!!!!</button>
         <GoogleMap
           defaultZoom={this.state.defaultZoom}
-          center={this.props.center}
+          center={this.state.center}
           defaultCenter={new window.google.maps.LatLng(23.21632, 72.641219)}
         >
           {this.state.top.map((elem, index = 0) => {
