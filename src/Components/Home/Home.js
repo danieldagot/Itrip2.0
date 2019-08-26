@@ -115,9 +115,17 @@ class Home extends React.Component {
 
 
   }
-  componentDidMount() {
-    this.props.user.fetchProjects()
-  }
+
+
+
+
+
+
+
+
+  async componentDidMount() {
+    await  this.props.user.fetchProjects()
+    }
   render() {
     this.getGeoLocation()
 
@@ -160,6 +168,7 @@ class Home extends React.Component {
             </div>
           )}
         </PlacesAutocomplete>
+
 
         <a
           onClick={this.popup}
