@@ -8,13 +8,15 @@ class NavBarHotPlaces extends Component { //now will be the navBar
        this.state = {
        }
    }
-   componentDidUpdate = async () => {
-        const userName = localStorage.getItem("user")
-        let data = await Axios.get(`http://localhost:8080/user/${userName}`)
-        const user =   JSON.parse(data.data)
-        const trip = { direction: this.props.data, center: this.props.center }
-         //user.Trip = trip
-        let a = await Axios.put(`http://localhost:8080/addTrip/${userName}`, user)
+   componentDidMount = async () => {
+    const userName = localStorage.getItem("user")
+    let data = await Axios.get(`http://localhost:8080/user/${userName}`)
+    let user = data.data
+    let trip =  this.props.data 
+     user.Trips.push(trip)
+    console.log(user.Trips);
+    
+    let a = await Axios.put(`http://localhost:8080/addTrip/${userName}`, user)
       }
    
    render() {
