@@ -1,23 +1,8 @@
-import { observable, computed, action , runInAction } from 'mobx'
+import { observable, computed, action, runInAction } from 'mobx'
 import axios from "axios"
 export class User {
   @observable user
-  // @computed user2 = this.loadUser()
-  // @action loadUser = async () => {
-  //   const userName = localStorage.getItem("user")
-  //   let data = await axios.get(`http://localhost:8080/user/${userName}`)
-  //   this.user.set(data.data)
-
-
-
-  //   console.log(this.user);
-
-
-  // }
-  // @action getUser = () => {
-  //   return this.user
-  // }
-
+  @observable top
 
   @action
   async fetchProjects() {
@@ -30,9 +15,9 @@ export class User {
       runInAction(() => {
         this.state = "done"
         console.log(data.data);
-        this.user =  data.data
+        this.user = data.data
         console.log(this.user.Age);
-        
+
       })
     } catch (error) {
       runInAction(() => {
@@ -40,5 +25,13 @@ export class User {
       })
     }
   }
+  @action setTop = (data) => {
+    this.top = data
+    console.log(this.top);
 
+  }
+
+  @action getTop = () => {
+    return this.top
+  }
 }
