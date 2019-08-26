@@ -22,9 +22,11 @@ class MyTrips extends Component {
 
                     {this.state.trips.map(trip =>
                         <div className='trip'>
-                            <h1>{trip.name}</h1>
-                            <h2>places : {trip.places.map(place => <div>{place}</div>)}</h2>
+                            <div className='tripTitle'>{trip.name}</div>
+                            <h2 className='infoPlaces'>places : {trip.places.map(place => <span>{place} , </span>)}</h2>
                             <div>Date you choose to trvel: {trip.dates}</div>
+                            <a class="waves-effect waves-light btn-small"><i class="fas fa-route"></i>  Start Travel!</a>
+
                         </div>
                     )}
                 </div>

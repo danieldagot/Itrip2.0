@@ -77,9 +77,11 @@ class DiscoverPlaces extends Component {
            </div>
          )}
        </PlacesAutocomplete>
-       <button onClick={this.getData} class="btn waves-effect waves-light" type="submit" name="action">Search
+       {/* <button onClick={this.getData} class="btn waves-effect waves-light" type="submit" name="action">Search
    <i class="material-icons right">send</i>
- </button>
+ </button> */}
+ <a  onClick={this.getData} type="submit" name="action" class="waves-effect waves-light btn-small"><i class='serchA' class="fas fa-search-location"></i>  Start !</a>
+
     <span id="box">
        <div id="text">{this.state.data}</div>
       </span>
