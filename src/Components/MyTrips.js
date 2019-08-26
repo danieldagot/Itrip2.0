@@ -4,6 +4,7 @@ import '../Styles/MyTrips.css'
 import Test from "./test"
 const contries = require("../country-by-name")
 class MyTrips extends Component {
+
    constructor() {
        super()
        this.state=  {
@@ -25,5 +26,6 @@ class MyTrips extends Component {
           </div>
        );
    }
+
 }
 export default MyTrips;

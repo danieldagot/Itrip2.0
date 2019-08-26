@@ -72,7 +72,7 @@ class Test extends React.Component {
 
   }
 
-  
+
 
 
   popup = () => {
@@ -136,11 +136,11 @@ class Test extends React.Component {
   }
 
 
- async componentDidUpdate() {
-    console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
+  async componentDidUpdate() {
+    console.log(this.props.user.user)
     let Test = this.props.user.user
-  console.log( Test);
-  
+    console.log(Test);
+
 
   }
 
@@ -168,69 +168,12 @@ class Test extends React.Component {
   }
   render() {
     this.getGeoLocation()
+    console.log(this.props.user.getTop())
 
     return (
       <div id="all" >
 
-
-        <PlacesAutocomplete
-          value={this.state.address}
-          onChange={this.handleChange}
-          onSelect={this.handleSelect}
-        >
-          {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
-            <div >
-              <input
-                {...getInputProps({
-                  placeholder: 'Search Places ...',
-                  className: 'location-search-input',
-                })}
-              />
-              <div className="autocomplete-dropdown-container">
-                {loading && <div>Loading...</div>}
-                {suggestions.map(suggestion => {
-                  const className = suggestion.active
-                    ? 'suggestion-item--active'
-                    : 'suggestion-item';
-                  // inline style for demonstration purpose
-                  const style = suggestion.active
-                    ? { backgroundColor: '#fafafa', cursor: 'pointer' }
-                    : { backgroundColor: '#ffffff', cursor: 'pointer' };
-                  return (
-                    <div
-                      {...getSuggestionItemProps(suggestion, {
-                        className,
-                        style,
-                      })}
-                    >
-                      <span>{suggestion.description}</span>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-          )}
-        </PlacesAutocomplete>
-        <button onClick={this.popup} className="addTrip">Add Trip</button>
-        {this.state.popup ? <AddTrip changeType={this.changeType} handleChange={this.handleChange} handleSelect={this.handleSelect} /> : null}
-        {this.state.popup2 ? <div> <Directions data={this.state.top} center={this.state.latLng} />
-        </div>
-          : null}
-        {this.state.trip ? null :
-          <div style={{ width: "100vw", height: "100vh" }}>
-            <MapWrapped state={this.state} />
-            {/* <Landing handleSelect={this.handleSelect} /> */}
-            {/* <MyTrip /> */}
-            {/* <MapPlaces state={this.state}/> */}
-            {/* <AddTrip handleChange={this.handleChange} handleSelec={this.handleSelect}/> */}
-            <a onClick={this.getNav} class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
-
-            <NavBarHotPlaces data={this.state.top} />
-          </div>
-        }
-
-
-        {this.state.trip ? <Directions data={this.state.user.Trip} center={this.state.latLng} /> : null}
+        {this.props.user.top ? <Directions data={this.props.user.top} /> : null}
       </div>
     );
   }

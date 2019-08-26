@@ -1,10 +1,9 @@
-body{
-    width: 100%;
- }
+
  .addTrip {
     margin-left: 1vw;
     margin-top: 5vh;
  }
+
  .trip{
     margin-top:20vh;
  }
@@ -12,3 +11,4 @@ body{
    margin-top:-10vh;
 
  }
+
