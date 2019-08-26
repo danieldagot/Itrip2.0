@@ -7,8 +7,9 @@ async function wikiInfo(citystr) {
   let data = await axios.get(`http://en.wikipedia.org/w/api.php?action=opensearch&search='${citystr}'&format=json`)
 
 let urls = (data.data)
-console.log(urls[2].join(","));
 let dis = {"short" : urls[2][0] , "long" :  urls[2].join(",")  }
+console.log(dis);
+
   return dis
 
 }
@@ -16,6 +17,4 @@ let dis = {"short" : urls[2][0] , "long" :  urls[2].join(",")  }
 module.exports = wikiInfo
 
 
-wikiInfo("istael")
-
-
+wikiInfo("rome")
