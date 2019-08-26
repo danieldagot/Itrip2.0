@@ -63,10 +63,9 @@ class App extends Component {
 
         <div className="App">
 
-
           {localStorage.getItem("loged") == null ? <Route path="/" exact render={() => (<Redirect to="/Landing" />)} /> : localStorage.getItem("loged") != 2 ? <Route path="/" exact render={() => (<Redirect to="/InterestLanding" />)} /> : <Route path="/" exact render={() => (<Redirect to="/Home" />)} />}
           <Route path="/test" exact render={() => <Test />} />
-          <Route path="/MyTrip" exact render={() => <MyTrips />} />
+          <Route path="/MyTrips" exact render={() => <MyTrips />} />
           <Route path="/DiscoverPlaces" exact render={() => <DiscoverPlaces />} />
           <Route path="/MyProgress" exact render={() => <MyProgress />} />
           <Route path="/Landing" exact render={() => <Landing />} />

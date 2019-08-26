@@ -1,13 +1,18 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 //import Option from './Option'
-//import '../styles/Option.css'
+import '../Styles/Myprogress.css'
 
 class MyProgress extends Component {
 
     render() {
         return (
-            <div></div>
+            <div className='game'>
+                <div className='userInfo'>
+                    User Name: user
+                    Your Pints: PX
+                </div>
+            </div>
         );
     }
 }

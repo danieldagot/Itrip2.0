@@ -1,0 +1,11 @@
+.game{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 8.3%;
+        left: 0;
+        background-position: 100%;
+        background-position: center;
+        background-size: cover;
+    background-image: url(https://previews.123rf.com/images/vitaliyvill/vitaliyvill1706/vitaliyvill170600007/79853805-漫画ゲーム背景、ゲーム-モバイル-アプリケーションとコンピューターのシームレスな背景。あなたの設計図.jpg);
+}

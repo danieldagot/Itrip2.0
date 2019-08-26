@@ -2,8 +2,8 @@ body{
   /* background: linear-gradient(to bottom, rgba(255,255,255,0.15) 0%, rgba(0,0,0,0.15) 100%), radial-gradient(at top center, rgba(255,255,255,0.40) 0%, rgba(0,0,0,0.40) 120%) #989898;  background-blend-mode: multiply,multiply; */
   height: 100vh;
   text-align: center;
-  background-image: url('https://previews.123rf.com/images/denphumi/denphumi1305/denphumi130500124/19911835-natural-green-spring-or-summer-season-abstract-nature-background.jpg');
-  background-repeat: no-repeat;
+
+	background:url(https://images.pexels.com/photos/210186/pexels-photo-210186.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);  background-repeat: no-repeat;
   background-size: cover;
 }
 #MAIN{

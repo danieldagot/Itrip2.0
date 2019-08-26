@@ -1,7 +1,132 @@
-body{
-    width: 100%;
- }
+
  .addTrip {
     margin-left: 1vw;
     margin-top: 5vh;
  }
+ .titleMyTrip{
+    padding: 2%;
+    font-size: 5vh;
+ }
+
+
+
+
+.Trips {
+   /* margin-top: 10vh; */
+   display: grid;
+   /* grid-gap: 3vh 1vw; */
+   grid-template-columns: repeat(1, 1fr);
+   /* grid-template-rows: repeat(3, 1fr); */
+   height:200%;
+   width: 90vw;
+   padding: 5vh;
+   border-radius: 20px;
+       text-align: center;
+       margin-left: 2vw; 
+        margin-top: 5%;
+       /* -webkit-box-shadow: 0px 0px 30px 11px #ddcdcd;  */
+       /* box-shadow: 0px 0px 30px 11px #ffffff;      */
+
+}
+.trip{
+    background-color: silver;
+   
+   padding: 10vh;
+   width: 90vw;
+   height: 50vh;
+   border-radius: 20px;
+   padding-bottom: 5vh;
+
+       text-align: center;
+       -webkit-box-shadow: 0px 0px 30px 11px #ddcdcd;
+       box-shadow: 0px 0px 30px 11px #ffffff;
+       /* background-image: url('https://drscdn.500px.org/photo/5600265/m%3D900/v2?sig=460dc03980e40b4f486d233e0be290bba302b245c45b72affaf01505ad8b59b1'); */
+       background-size: cover;
+       background-position: center;
+}
+.trip:hover{
+   cursor: pointer;
+   opacity: 1
+}
+
+.Food{
+   /* background-image: url('https://i.pinimg.com/originals/89/ba/41/89ba41f639bb9b01b9a355c037746b50.jpg'); */
+   background-image: url('http://howardshooter.co.uk/wp-content/uploads/2016/09/Miso-Cod-Ramen.jpg'); 
+   background-repeat: no-repeat;
+   background-size: cover;
+   background-position: center;
+}
+
+.Food:hover{
+   cursor: pointer;
+   opacity: 1
+}
+
+.Extreme{
+   /* border-radius: 7% 20%; */
+   background-image: url('http://www.designatlarge.it/wp-content/uploads/2017/12/Climbing-Extreme-Sport-Wallpaper-1-1p7q0xq.jpg');
+   background-repeat: no-repeat;
+   background-size: cover;
+   transition: 0.3s;
+   background-position: center;
+}
+
+.Extreme:hover{
+   cursor: pointer;
+   opacity: 1
+}
+
+.Nature {
+   background-image: url('https://image.shutterstock.com/image-photo/closeup-nature-view-green-leaf-260nw-1038842551.jpg');
+   background-repeat: no-repeat;
+   background-size: cover;
+   background-position: center;
+}
+
+.Nature:hover{
+   cursor: pointer;
+   opacity: 1
+}
+
+.Art {
+   background-image: url('https://agc.creativelive.com/agc/201710-SHADENFINEARTBOOTCAMP/Brooke_Shaden_Fine_Art_Photography_Course%20GFX_WEB_1600x900.jpg');
+   background-repeat: no-repeat;
+   background-size: cover;
+}
+
+.Art:hover{
+   cursor: pointer;
+   opacity: 1
+}
+.Next{
+   margin:5vh;
+   width:25vh;
+   height:10vh;
+   font-size:4vh;
+   
+}
+
+.Night {
+   background-image: url('https://images.pexels.com/photos/301692/pexels-photo-301692.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500');
+   background-repeat: no-repeat;
+   background-size: cover;
+   
+}
+
+.Night:hover{
+   cursor: pointer;
+   opacity: 1
+}
+
+.Beauty {
+   background-image: url('https://media.istockphoto.com/photos/various-hair-dresser-tools-on-pink-background-with-copy-space-picture-id1024577404');
+   background-repeat: no-repeat;
+   background-size: cover;
+   background-position: center;
+}
+
+.Beauty:hover{
+   cursor: pointer;
+   opacity: 1
+}
+
