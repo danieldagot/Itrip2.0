@@ -22,10 +22,11 @@ import { observer,inject } from 'mobx-react'
 @inject("user")
 class Home extends React.Component {
   constructor() {
-    super();
+    super()
     this.state = {
       address: '',
       latLng: [],
+      types: '',
       currentAddress: [],
       type: {
         Food: false,
@@ -49,7 +50,6 @@ class Home extends React.Component {
     console.log(this.state.type);
 
     for (let i in this.state.type) {
-      console.log(i)
       if (i == interest) {
         console.log(i);
         this.state.type[i] = true
@@ -63,20 +63,23 @@ class Home extends React.Component {
   }
 
   handleSelect = address => {
-    geocodeByAddress(address)
-      .then(results => getLatLng(results[0]))
-      .then(latlng => {
-        this.setState({ latLng: latlng }, function () {
-          console.log(this.state)
 
-        })
-        console.log('Success', latlng)
+    geocodeByAddress(address).then(results => {
+        console.log(results[0].types[0]);
+        this.setState({ types: results[0].types[0]})
+        return getLatLng(results[0]);
+      }).then(latlng => {
+        this.setState({ latLng: latlng }, function() {
+          console.log(this.state);
+        });
+
       })
       .catch(error => console.error('Error', error))
   }
 
   getGeoLocation = () => {
     if (navigator.geolocation) {
+
       navigator.geolocation.getCurrentPosition(
         position => {
           let a = {
@@ -85,11 +88,10 @@ class Home extends React.Component {
           }
           this.setState({
             currentAddress: a
-          }, function () {
-            console.log(this.state.currentAddress)
-          })
+          }, function () {})
         }
       )
+
     }
   }
 
@@ -158,14 +160,35 @@ class Home extends React.Component {
             </div>
           )}
         </PlacesAutocomplete>
-        <a onClick={this.popup} id="ADD" class="btn-floating btn-large waves-effect waves-light green"><i class="material-icons">add</i></a>
 
-        {this.state.popup ? <AddTrip changeType={this.changeType} handleChange={this.handleChange} handleSelect={this.handleSelect} /> : null}
-        <div id={this.state.click ? 'mapW' : 'mapW2'}>
-          <span> <MapWrapped state={this.state} />
+        <a
+          onClick={this.popup}
+          id="ADD"
+          class="btn-floating btn-large waves-effect waves-light green"
+        >
+          <i class="material-icons">add</i>
+        </a>
 
-            <a onClick={this.getNav} className="btn-floating grey lighten-1 all2"><i className="material-icons">format_align_right</i></a>
-            {this.state.click ? <NavBarHotPlaces data={this.state.top} /> : null}
+        {this.state.popup ? (
+          <AddTrip
+            changeType={this.changeType}
+            handleChange={this.handleChange}
+            handleSelect={this.handleSelect}
+          />
+        ) : null}
+        <div id={this.state.click ? "mapW" : "mapW2"}>
+          <span>
+            {" "}
+            <MapWrapped state={this.state} />
+            <a
+              onClick={this.getNav}
+              id="navBar"
+              className="btn-floating grey lighten-1 all2">
+              <i className="material-icons">format_align_right</i>
+            </a>
+            {this.state.click ? (
+              <NavBarHotPlaces data={this.state.top} />
+            ) : null}
           </span>
         </div>
 
@@ -174,7 +197,6 @@ class Home extends React.Component {
     );
   }
 }
-//data = {this.state.top}
 
 
 

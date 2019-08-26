@@ -8,7 +8,6 @@ class NavBarHotPlaces extends Component { //now will be the navBar
        }
    }
    render() {
-       console.log('onnnn')
        return (
            <div className='all'>
             {this.props.data.map(d =>  <div>{d.name}</div>)}
