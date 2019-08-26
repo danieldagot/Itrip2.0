@@ -6,7 +6,18 @@
     margin-left: 50%;
 
 }
+.gm-style-iw {
+    width: 30vh; 
+    min-height: 8vh;  }
 
+#infoWindow{
+    font-size: 1.8vh;
+    text-align: center;
+}
+
+.gm-style-iw-d{
+    height: 8vh;
+}
 body{
     background-image: linear-gradient(to top, #0ba360 0%, #3cba92 100%);
  }
@@ -18,17 +29,16 @@ body{
     border-radius: 6px;
     
   }
-  #ADD{
-      margin-left:100vh;
-  }
+
    #mapW{
+
      width: 80vw;
      height: 80vh;
      float: left;
      z-index: -1;
      margin-left: 0px;
    }
-   #mapW2{
+   #mapW2{   
     width: 100vw;
     height: 80vh;
     float: left;
@@ -41,6 +51,14 @@ body{
     margin-left: 100%;
    }
 
-   .btn-floating{
-       margin-right: 1vw;
+   #navBar{
+    margin-right: 2vw;
+    margin-top: 0%;
    }
+   #ADD{
+    margin-left:120%;
+    margin-bottom:8% ;
+    margin-top: 2%;
+
+    /* margin-bottom: 3vh; */
+}

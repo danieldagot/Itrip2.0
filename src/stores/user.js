@@ -1,3 +1,4 @@
+
 import { observable, computed, action, runInAction } from 'mobx'
 import axios from "axios"
 export class User {
@@ -24,14 +25,17 @@ export class User {
         this.state = "error"
       })
     }
+
   }
   @action setTop = (data) => {
     this.top = data
     console.log(this.top);
+
 
   }
 
   @action getTop = () => {
     return this.top
   }
+
 }
