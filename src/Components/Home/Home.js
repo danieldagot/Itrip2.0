@@ -196,7 +196,7 @@ class Home extends React.Component {
               <i className="material-icons">format_align_right</i>
             </a>
             {this.state.click ? (
-              <NavBarHotPlaces data={this.state.top} />
+              <NavBarHotPlaces data={this.state} />
             ) : null}
           </span>
         </div>
