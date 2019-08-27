@@ -49,15 +49,16 @@ class MyTrips extends Component {
 
 //     console.log(this.props.user.user.Trips[index].address)
 //     for (let m in this.props.user.user.Trips[index].address) {
-//         if (m !== name) {
-//             consol
-//               let user = this.props.user.user;
-//               user.Trips[index].address=m;
-//           let a = await Axios.put(
-//             `http://localhost:8080/addTrip/${userName}`,
-//             user
-//           );
-//           return a.data;
+//         if (m != name) {
+//             console.log(name)
+//             console.log(m)
+//         //       let user = this.props.user.user;
+//         //       user.Trips[index].address=m;
+//         //   let a = await Axios.put(
+//         //     `http://localhost:8080/addTrip/${userName}`,
+//         //     user
+//         //   );
+//         //   return a.data;
 //           }}
 //   }
 
@@ -126,7 +127,7 @@ class MyTrips extends Component {
           <div className="Trips">
             {trip.map(m => (
               <div className="trip">
-                <i id="X" index={m["index"]} name={m}  class="fas fa-times"></i>
+                <i id="X" index={m["index"]} name={m.address} onClick={this.sliceTrip}  class="fas fa-times"></i>
                 <h4>{m.address}</h4>
                 <div id="grid">
                   <h5> My interest</h5>
