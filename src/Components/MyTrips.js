@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 import '../Styles/MyTrips.css'
 import Test from "./test"
+import Axios from 'axios';
+
 import { observer,inject } from 'mobx-react'
 const contries = require("../country-by-name")
 
@@ -24,11 +26,38 @@ class MyTrips extends Component {
     })
     }
 
+    sliceType = async (event) =>{
+        const userName = localStorage.getItem("user")
+        let index = event.target.getAttribute("index")        
+        let name = event.target.getAttribute("name")
+console.log(name)
+console.log(index)
+console.log(this.props.user.user.Trips[index].type(m=>m)
+        // let t = this.props.user.user.Trips[index].type.filter(m=> m !== name )
+        // let user = this.props.user.user
+        // user.Trips[index].top=t
+        // let a = await Axios.put(`http://localhost:8080/addTrip/${userName}`, user)
+        // return(a.data)
+    }
+    sliceTop = async(event) => {
+        const userName = localStorage.getItem("user")
+        let index = event.target.getAttribute("index")        
+        let name = event.target.getAttribute("name")
+        
+        let t = this.props.user.user.Trips[index].top.filter(m=> m["name"] !== name )
+        console.log(this.props.user.user.Trips[index])
+        let user = this.props.user.user
+        user.Trips[index].top=t
+        let a = await Axios.put(`http://localhost:8080/addTrip/${userName}`, user)
+        return(a.data)
+    } 
+
+
     type = (obj) => {
         let interest=[]
         for (const key in obj["type"]) {
             if (obj["type"][key]) {
-              interest.push(<div>{key}  <br></br><i id="plus" class="fas fa-plus"></i> <i id="minus" class="fas fa-minus"></i></div>)
+              interest.push(<div>{key}  <br></br><i id="minus" name={key} index={obj["index"]} onClick={this.sliceType}  class="fas fa-minus"></i></div>)
             }
        }
        return interest
@@ -36,16 +65,18 @@ class MyTrips extends Component {
 
     top = (obj) => {
         let Top=[]
+        console.log(obj);
+        
         for (const key in obj["top"]) {
             if (obj["top"][key]) {
-               Top.push(<div>{(obj["top"][key]["name"])}  <br></br><i class="fas fa-plus"></i> <i class="fas fa-minus"></i></div>)
+               Top.push(<div>{(obj["top"][key]["name"])}  <br></br> <i name={obj["top"][key]["name"]} index={obj["index"]} onClick={this.sliceTop} class="fas fa-minus"></i></div>)
             }
        }
        return Top
     }
 
    render() {
-       let trip = this .state.trips
+       let trip = this.state.trips
        return (
           <div>
                <div className='titleMyTrip'>Here You can manage all your trips and update:</div>

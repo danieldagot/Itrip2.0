@@ -79,13 +79,13 @@ class DiscoverPlaces extends Component {
            </div>
          )}
        </PlacesAutocomplete>
-       <button onClick={this.getData} class="btn waves-effect waves-light" type="submit" name="action">Search
+       </div>
+       <button onClick={this.getData} id ="button" class="btn waves-effect waves-light" type="submit" name="action">Search
    <i class="material-icons right">send</i>
  </button>
     <span id="box">
        <div id="text">{this.state.data}</div>
       </span>
-      </div>
          </div>
      );
  }
