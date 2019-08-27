@@ -19,7 +19,7 @@ const wikiApi = require('./wikiApi')
 
 let Interest = {
     Night: ["bar", "night_club", "casino"],
-    Exstrim: ["amusement_park"],
+    Extreme: ["amusement_park"],
     Food: ["cafe", "restaurant"],
     Nature: ["park", "aquarium", "zoo"],
     Beauty: ["beauty_salon", "spa", "jewelry_store"],
@@ -30,7 +30,6 @@ let Interest = {
 function wikiInfo() {
     request.get("http://en.wikipedia.org/w/api.php?action=opensearch&search=japan&format=json&callback=wikiCallback", function (error, response, body) {
         const info = body
-        console.log(info);
 
     })
 }
@@ -39,10 +38,9 @@ module.exports = wikiInfo
 
 router.post('/addUser', (req, res) => {
     let data = req.body
-    console.log(data);
 
     let t = new user(data)
-    console.log(t);
+    // console.log(t);
     t.save()
     res.send(t)
 })
@@ -50,20 +48,17 @@ router.post('/addUser', (req, res) => {
 router.put('/GooglePlaces', async (req, res) => {
 
     let state = req.body
-
     let interest = []
     for (const key in state.type) {
-        if (state.type[key] && key != "data") {
+        if (state.type[key] ) {
             interest.push(key)
         }
     }
     let a = []
     interest.forEach(i => {
-        console.log(i);
         Interest[i].forEach(j => a.push(j))
 
     })
-    console.log(a);
     state.type = a
 
     
@@ -72,13 +67,11 @@ router.put('/GooglePlaces', async (req, res) => {
     let f = data.results.map(m => { return { name: m.name, value: m.rating ,geometry : m.geometry } })
     f = f.filter(f => f.value)
 
-    console.log(f);
     //f.splice(0,1)
     // sort by value
     f.sort(function (a, b) {
         return b.value - a.value;
     });
-    console.log(f.slice(0, 4));
 
     res.send(f.slice(0, 10))
 
@@ -86,11 +79,9 @@ router.put('/GooglePlaces', async (req, res) => {
 })
 
 router.get('/user/:userName', (req, res) => {
-  //  console.log(req.params);
 
     const UserName = req.params.userName
     user.findOne({ UserName: UserName }).exec(function (err, set) {
-      //  console.log(set);
 
         res.send(set)
     })
@@ -99,13 +90,11 @@ router.get('/user/:userName', (req, res) => {
 router.put('/addIntrest/:userName', (req, res) => {
     const userName = req.params.userName
     let data = req.body
-    console.log(data);
 
     user.findOneAndUpdate({ UserName: userName }, data, { upsert: true }, function (err, doc) {
         //console.log(doc);
         return (doc);
     }).then(function (data) {
-        console.log(data);
         res.send(data)
     })
 
@@ -115,15 +104,11 @@ router.put('/addIntrest/:userName', (req, res) => {
 router.put('/addTrip/:username', (req, res) => {
     const userName = req.params.userName
     let data = req.body
-  
-   console.log(data);
-   console.log( '--------');
+ 
    
     user.findOneAndUpdate({ _id: data._id }, data, { upsert: true }, function (err, doc) {
-        console.log(doc);
         return (doc);
     }).then(function (data) {
-        console.log(data);
         res.send(data)
     })
 })
@@ -132,7 +117,6 @@ router.get('/getRecomandet/:userName', (req, res) => {
 
     const userName = req.params.userName
     user.findOne({ UserName: userName }).exec(function (err, set) {
-        // console.log(set);
         res.send(set)
 
     })
@@ -219,7 +203,6 @@ module.exports = user
  // router.put('/clients', (req, res) => {
 //     let data = req.body
 //     let id = data.id
-//     console.log(data);
 //     user.findOneAndUpdate({
 //         _id: id
 //     }, data, {
@@ -232,7 +215,6 @@ module.exports = user
 // router.put('/client', (req, res) => {
 //     let data = req.body
 //     let id = data._id
-//     console.log(data);
 //     client.findOneAndUpdate({
 //         _id: id
 //     }, data, {

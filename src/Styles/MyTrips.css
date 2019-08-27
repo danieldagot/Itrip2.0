@@ -1,33 +1,44 @@
+/* @import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap'); */
+
 body{
    width: 100%;
 }
 .addTrip {
    margin-left: 1vw;
-   margin-top: 5vh;
+   /* margin-top: 5vh; */
 }
+#directions{
+margin-bottom: -10vh;
+}
+
 .titleMyTrip{
    padding: 2%;
    font-size: 5vh;
 }
+
+/* .tripTitle{
+   grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(1, 1fr);
+
+} */
 .Trips {
+   margin-left:9%;
   display: grid;
-  grid-gap: 4vh 3vw;
-  grid-template-columns: repeat(1, 1fr);
-  /* grid-template-rows: repeat(3, 1fr); */
-  height:90vh;
-  width: 90vw;
+  grid-gap: 3vh 3vw;
+  grid-template-columns: repeat(2, 1fr);
+  height:70vh;
+  width: 70vw;
   border-radius: 20px;
       text-align: center;
-      margin-left: 2vw;
-       margin-top: 5%;
       /* -webkit-box-shadow: 0px 0px 30px 11px #ddcdcd;  */
       /* box-shadow: 0px 0px 30px 11px #ffffff;      */
 }
 .trip{
    background-color: silver;
   /* margin-bottom: 2em; */
-  width: 90vw;
-  height: 70vh;
+  width: auto;
+  height: auto;
+  margin-bottom: 3vh;
   border-radius: 20px;
       text-align: center;
       -webkit-box-shadow: 0px 0px 30px 11px #ddcdcd;
@@ -35,8 +46,45 @@ body{
       /* background-image: url('https://drscdn.500px.org/photo/5600265/m%3D900/v2?sig=460dc03980e40b4f486d233e0be290bba302b245c45b72affaf01505ad8b59b1'); */
       background-size: cover;
       background-position: center;
+      
+}
+.interest{
+   display: grid;
+   font-size: 0.8em;
+   text-align: center;   
+   grid-template-columns: repeat(2, 1fr);
+   margin:1vh;
+
+}
+
+.places{
+   display: grid;
+   font-size: 0.8em;
+   text-align: center;
+   grid-template-columns: repeat(5, 1fr);
+   margin:1vh;
+
+}
+h4{
+   font-size: 1.7em;
+
+}
+h5{
+   font-size: 1.4em;
+
+}
+#grid{
+   display: grid;
+   grid-template-columns: repeat(2, 1fr);
+
 }
 .trip:hover{
   cursor: pointer;
   opacity: 1
+}
+
+.waves-effect{
+   /* margin-top: 2vh; */
+   justify-self: end;
+   margin-bottom: 2vh;
 }

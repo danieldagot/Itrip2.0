@@ -13,10 +13,11 @@ class NavBarHotPlaces extends Component { //now will be the navBar
     let data = await Axios.get(`http://localhost:8080/user/${userName}`)
     let user = data.data
     let trip =  this.props.data 
-     user.Trips.push(trip)
-    console.log(user.Trips);
-    
+    let index = user.Trips.length
+    trip.index= index
+     user.Trips.push(trip)    
     let a = await Axios.put(`http://localhost:8080/addTrip/${userName}`, user)
+    return(a.data)
       }
    
    render() {

@@ -43,7 +43,7 @@ class Landing extends Component {
    }
    render() {
        return(
-        <div>
+        <div className='container'>
            <div id="MainTitle">
                Hey There, Welcome to<br></br><img src = 'https://media.giphy.com/media/h81EQBKGXH8L5i3nv3/giphy.gif' ></img>
            </div>

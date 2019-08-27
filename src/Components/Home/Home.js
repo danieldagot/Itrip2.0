@@ -30,7 +30,7 @@ class Home extends React.Component {
       currentAddress: [],
       type: {
         Food: false,
-        Extream: false,
+        Extreme: false,
         Nature: false,
         Art: false,
         Night: false,
@@ -46,20 +46,16 @@ class Home extends React.Component {
     this.setState({ popup: !this.state.popup })
   }
   changeType = (interest) => {
-    console.log(interest);
-    console.log(this.state.type);
-
     for (let i in this.state.type) {
       if (i == interest) {
-        console.log(i);
-        this.state.type[i] = true
+          this.state.type[i] = true
         console.log(this.state.type)
       }
     }
   }
 
   handleChange = address => {
-    this.setState({ address }, function () { })
+    this.setState({ address }, function () { console.log(this.state.address)})
   }
 
   handleSelect = address => {
@@ -111,17 +107,7 @@ class Home extends React.Component {
       console.log(this.state.top);
       this.props.user.setTop(this.state.top)
     })
-
-
-
   }
-
-
-
-
-
-
-
 
   async componentDidMount() {
     await  this.props.user.fetchProjects()
@@ -196,7 +182,7 @@ class Home extends React.Component {
               <i className="material-icons">format_align_right</i>
             </a>
             {this.state.click ? (
-              <NavBarHotPlaces data={this.state.top} />
+              <NavBarHotPlaces data={this.state} />
             ) : null}
           </span>
         </div>

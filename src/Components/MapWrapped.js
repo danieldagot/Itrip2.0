@@ -8,6 +8,7 @@ import {
 } from "react-google-maps";
   import mapStyles from "../mapStyles";
   import "../Styles/Home.css";
+  import axios from 'axios';
 
 
 
@@ -17,10 +18,22 @@ import {
         this.state = {
           latInfo:0,
           lngInfo:0,
-          nameInfo:''
+          nameInfo:'',
+          name:''
         }
     }
     
+//  disc = (p) => {
+//   let p2 = p.replace(" " ,"_")
+//   console.log(p2)
+//   let data = axios.get(`http://localhost:8080/wikipedia/${p2}`)
+//   data.then(d => {
+//     this.state.name=d.data.short
+//     debugger
+//     console.log( this.state.name)
+//   })
+// }
+
      Map=()=> {
         const [selectedPark, setSelectedPark] = useState(null);
         useEffect(() => {
@@ -35,6 +48,9 @@ import {
             window.removeEventListener("keydown", listener);
           };
         }, []);
+
+       
+
 
         return (
           <GoogleMap
@@ -52,6 +68,7 @@ import {
                 }}
                 onClick={() => {
                   setSelectedPark(place);
+
                 }}
                 icon={{
                   url: `/skateboarding.svg`,
@@ -61,7 +78,9 @@ import {
               />
             )
             ):null}
-           {selectedPark? <InfoWindow
+            {/* {selectedPark ? this.disc(selectedPark.name) : null} */}
+           {selectedPark ? 
+           <InfoWindow
               onClick={this.openWindow}
                 onCloseClick={() => {
                   setSelectedPark(null);
@@ -73,7 +92,7 @@ import {
               >
                 <div>
                   <h2 id="infoWindow">{selectedPark.name}</h2>
-                  {/* <p>{selectedPark.properties.DESCRIPTIO}</p> */}
+                  {/* <div>{this.state.name}</div> */}
                 </div>
               </InfoWindow>: null
              }
@@ -81,7 +100,7 @@ import {
         );
       }
       
-    
+  
     render() { 
        
         const MapWrapped = withScriptjs(withGoogleMap(this.Map));
