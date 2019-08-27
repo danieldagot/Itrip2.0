@@ -1,99 +1,108 @@
-/* @import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap'); */
-
 body{
    width: 100%;
-}
-.addTrip {
+ }
+ .addTrip {
    margin-left: 1vw;
    /* margin-top: 5vh; */
-}
-#X{
+ }
+ #X{
    position: absolute;
    left: 10px;
    margin:2vh;
-}
-#directions{
-margin-bottom: -10vh;
-}
-
-.titleMyTrip{
-   padding: 2%;
-   font-size: 5vh;
-}
-
-/* .tripTitle{
-   grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(1, 1fr);
-
-} */
-.Trips {
+ }
+ #directions{
+ margin-bottom: -10vh;
+ }
+ .titleMyTrip{
+   font-family: "Palatino Linotype";
+   margin-top: 2vh;
+   font-weight: bold;
+   padding: 4vh;
+   font-size: 7vh;
+ }
+ #countryTitle{
+   font-family: "Palatino Linotype";
+   font-weight: bold;
+   font-size: 6vh;
+ }
+ .Trips {
    margin-left:9%;
   display: grid;
   grid-gap: 3vh 3vw;
   grid-template-columns: repeat(2, 1fr);
-
   grid-template-rows: repeat(2, 1fr);
-
   height:70vh;
   width: 70vw;
   border-radius: 20px;
-      text-align: center;
-      /* -webkit-box-shadow: 0px 0px 30px 11px #ddcdcd;  */
-      /* box-shadow: 0px 0px 30px 11px #ffffff;      */
+   text-align: center;
+ }
+
+ .waves-effect{
+   background:linear-gradient(lightgreen,lightgreen) 100% 100% no-repeat;
 }
-.trip{
+ .trip{
    position: relative;
-   background-color: rgb(213, 222, 201);
+   background-color: silver;
   /* margin-bottom: 2em; */
-  width: auto;
+  width: 40vw;
   height: auto;
   margin-bottom: 3vh;
   border-radius: 20px;
       text-align: center;
       -webkit-box-shadow: 0px 0px 30px 11px #ddcdcd;
       box-shadow: 0px 0px 30px 11px #ffffff;
-      /* background-image: url('https://drscdn.500px.org/photo/5600265/m%3D900/v2?sig=460dc03980e40b4f486d233e0be290bba302b245c45b72affaf01505ad8b59b1'); */
+      /* background-image: url('https://drscdn.500px.org/photo/5600265/m%3D900/v2?sig=460dc03980e40b4f486d233e0be290bba302b245c45b72affaf01505ad8b59b1(221 kB)
+ https://drscdn.500px.org/photo/5600265/m%3D900/v2?sig=460dc03980e40b4f486d233e0be290bba302b245c45b72affaf01505ad8b59b1
+ '); */
       background-size: cover;
       background-position: center;
-      
-}
-.interest{
+ }
+ .interest{
    display: grid;
-   font-size: 0.8em;
-   text-align: center;   
-   grid-template-columns: repeat(2, 1fr);
-   margin:1vh;
-
-}
-
-.places{
-   display: grid;
-   font-size: 0.8em;
+   font-size: 1.2em;
    text-align: center;
-   grid-template-columns: repeat(5, 1fr);
+   grid-template-columns: repeat(4, 1fr);
    margin:1vh;
-
-}
-h4{
+ }
+ .btnStart{
+   margin-left: 200%;
+   color: rgb(8, 189, 134);
+ }
+ #myPlacesTitle{
+   font-family: "Palatino Linotype";
+   font-weight: bold;
+   font-size: 3vh;
+ }
+ /* .i{
+   background-color: rgb(45, 158, 101);
+ } */
+ .addInput {
+   width: 17vw;
+ }
+ .places{
+   display: grid;
+   font-size: 1.2em;
+   text-align: center;
+   grid-template-columns: repeat(1, 1fr);
+   grid-template-rows: repeat(10, 1fr);
+   margin:1vh;
+ }
+ h4{
    font-size: 1.7em;
-
-}
-h5{
+ }
+ h5{
    font-size: 1.4em;
-
-}
-#grid{
+ }
+ #grid{
    display: grid;
    grid-template-columns: repeat(2, 1fr);
-
-}
-.trip:hover{
+ }
+ .trip:hover{
   cursor: pointer;
   opacity: 1
-}
-
-.waves-effect{
+ }
+ .waves-effect{
    /* margin-top: 2vh; */
    justify-self: end;
    margin-bottom: 2vh;
-}
+ }

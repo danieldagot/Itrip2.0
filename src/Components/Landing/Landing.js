@@ -45,7 +45,7 @@ class Landing extends Component {
        return(
         <div className='container'>
            <div id="MainTitleLanding">
-               Hey There, Welcome to<br></br><img src = 'https://media.giphy.com/media/h81EQBKGXH8L5i3nv3/giphy.gif' ></img>
+               Hey There, Welcome to<br></br><img src = 'https://media.giphy.com/media/XBFhuEE9yZBXRdxwis/giphy.gif' ></img>
            </div>
            <div className="add">
                <div className="input">Full Name:
