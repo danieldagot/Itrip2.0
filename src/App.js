@@ -36,6 +36,8 @@ class App extends Component {
   }
   async componentDidMount() {
   await  this.props.user.fetchProjects()
+ 
+  
   }
 
   render() {

@@ -22,7 +22,9 @@ class DiscoverPlaces extends Component {
      let response= await axios.get(`http://localhost:8080/wikipedia/${country}`)
      console.log(response);
      
+
       let data =response.data["short"]
+
       this.setState({ data: data }, function () {
       // console.log(this.state.data)
   })

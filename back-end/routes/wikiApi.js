@@ -1,4 +1,5 @@
 const axios = require('axios')
+
 const rp = require('request-promise');
 const $ = require('cheerio');
 async function wikiInfo(citystr) {
@@ -9,3 +10,4 @@ let dis = {"short" : urls[2][0] , "long" :  urls[2].join(",")  }
  return dis
 }
 module.exports = wikiInfo
+

@@ -110,7 +110,9 @@ class Home extends React.Component {
   }
 
   async componentDidMount() {
+    console.log(this.props.user)
     await  this.props.user.fetchProjects()
+    
     }
   render() {
     this.getGeoLocation()
