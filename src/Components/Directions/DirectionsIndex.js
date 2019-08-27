@@ -19,16 +19,12 @@ class Directions extends Component {
   state = {
     defaultZoom: 3,
     map: null,
-    center: {
-      lat: 23.217724,
-      lng: 72.667216
-    },
-    top: []
+    center: {},
+    top: [],
+    bool: false
   };
 
   start = () => {
-    console.log("DummyLocations");
-
     let lcation = []
 
     this.props.data.map(m => {
@@ -52,8 +48,14 @@ class Directions extends Component {
       b.to = lcation[index + 1]
       dire.push(b)
     }
-    console.log(dire);
+    console.log(this.props.center.latLng);
+
     this.setState({ top: dire }, function () { })
+    this.setState({ center: this.props.center.latLng }, function () { console.log(this.state) })
+    this.setState({ bool: true }, function () {
+      //  console.log(this.state.user);
+
+    })
   }
 
   save = async () => {
@@ -90,40 +92,39 @@ class Directions extends Component {
     let a = await axios.put(`http://localhost:8080/addTrip/${userName}`, user)
     window.location.pathname = '/Home'
   }
-  componentDidMount(){
+  componentDidMount() {
     this.start()
   }
   //.mep( m => m )
   render() {
-   
-
     return (
       <div>
-        <button onClick={this.save}>save trip</button>
-        <button onClick={this.startTrip}>START!!!!</button>
-        <button onClick={this.startTrip}>STOOP!!!!</button>
-        <GoogleMap
-          defaultZoom={this.state.defaultZoom}
-          center={this.state.center}
-          defaultCenter={new window.google.maps.LatLng(23.21632, 72.641219)}
-        >
-          {this.state.top.map((elem, index = 0) => {
-            return (
+        {this.state.bool ?
+        <div>
+          {/* <button onClick={this.save}>save trip</button>
+          <button onClick={this.startTrip}>START!!!!</button>
+          <button onClick={this.startTrip}>STOOP!!!!</button> */}
+          <GoogleMap
+            defaultZoom={this.state.defaultZoom}
+            //  center={this.state.center}
+            defaultCenter={new window.google.maps.LatLng(this.state.center.lat, this.state.center.lng)}
+          >
+            {this.state.top.map((elem, index = 0) => {
+              return (
 
-              <DirectionRenderComponent
-                key={index}
-                index={index + 1}
-                //strokeColor={elem.strokeColor}
-                from={elem.from}
-                to={elem.to}
-              />
+                <DirectionRenderComponent
+                  key={index}
+                  index={index + 1}
+                  //strokeColor={elem.strokeColor}
+                  from={elem.from}
+                  to={elem.to}
+                />
+              );
+            })}
 
-
-            );
-          })}
-
-        </GoogleMap>
-
+          </GoogleMap>
+          </div>
+ : null}
       </div>
     );
   }
@@ -135,10 +136,7 @@ export default compose(
     loadingElement: <div style={{ height: `70%` }} />,
     containerElement: <div style={{ height: `50vh` }} />,
     mapElement: <div style={{ height: `70%` }} />
-  }),
-  withScriptjs,
-  withGoogleMap
-)(Directions);
+  }), withScriptjs, withGoogleMap)(Directions);
 
 
 // 0:

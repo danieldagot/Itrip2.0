@@ -18,76 +18,19 @@ import { KeyObject } from 'crypto';
 import Axios from 'axios';
 import NavBarHotPlaces from "./NavBarHotPlaces"
 import { observer, inject } from 'mobx-react'
+
+
 @observer
 @inject("user")
-
-
-
 class Test extends React.Component {
   constructor() {
     super();
     this.state = {
-      user : {} ,
-      bool : false
-     }
-  }
-
-
-  getUser = async () => {
-    const userName = localStorage.getItem("user")
-    console.log(userName);
-
-    let data = await axios.get(`http://localhost:8080/user/${userName}`)
-    let user = data.data
-    this.setState({ user: user }, function () {
-      console.log(this.state.user);
-
-    })
-    if (this.state.user.Trip) {
-      this.setState({ trip: true }, function () {
-        console.log(this.state.trip);
-
-      })
-
+      user: {},
+      bool: false
     }
-    else {
-      this.setState({ trip: false }, function () {
-        console.log(this.state.trip);
-
-      })
-    }
-
   }
 
-
-
-
-  popup = () => {
-    this.setState({ popup: !this.state.popup })
-  }
-  changeType = (interest) => {
-    console.log(interest);
-    console.log(this.state.type);
-
-
-
-    for (let i in this.state.type) {
-      console.log(i)
-      if (i == interest) {
-        console.log(i);
-        this.state.type[i] = true
-        console.log(this.staAte.type);
-
-      }
-
-
-    }
-
-  }
-
-  handleChange = address => {
-    this.setState({ address }, function () { })
-  }
 
   handleSelect = address => {
     geocodeByAddress(address)
@@ -96,10 +39,10 @@ class Test extends React.Component {
         // let data = [...this.state.latLng]
         // data.push(latlng)
         this.setState({ latLng: latlng }, function () {
-          console.log(this.state)
+          //   console.log(this.state)
 
         })
-        console.log('Success', latlng)
+        //  console.log('Success', latlng)
       })
       .catch(error => console.error('Error', error))
   }
@@ -115,7 +58,7 @@ class Test extends React.Component {
           this.setState({
             currentAddress: a
           }, function () {
-            console.log(this.state.currentAddress)
+            //     console.log(this.state.currentAddress)
           })
         }
       )
@@ -152,14 +95,14 @@ class Test extends React.Component {
   }
   async componentDidMount() {
     //this.getUser()
-    await  this.props.user.fetchProjects()
-    this.setState({user : this.props.user.user},function(){
-      console.log(this.state.user.Trips[0].top);
-      
+    await this.props.user.fetchProjects()
+    this.setState({ user: this.props.user.user }, function () {
+      //  console.log(this.state.user);
+      //  console.log(this.state.user.Trips[3].latLng);
     })
-    this.setState({bool : true},function(){
-      console.log(this.state.user.Trips[0].top);
-      
+    this.setState({ bool: true }, function () {
+      //  console.log(this.state.user);
+
     })
   }
   render() {
@@ -169,7 +112,7 @@ class Test extends React.Component {
     return (
       <div id="all" >
 
-        {this.state.bool ?   <Directions data={this.state.user.Trips[3].top} /> : null}
+        {this.state.bool ? <Directions data={this.state.user.Trips[2].top} center={this.state.user.Trips[2]} /> : null}
       </div>
     );
   }
