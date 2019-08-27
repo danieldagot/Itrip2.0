@@ -3,9 +3,10 @@ import { Link } from 'react-router-dom'
 import '../Styles/MyTrips.css'
 import Test from "./test"
 import Axios from 'axios';
-
 import { observer,inject } from 'mobx-react'
+import Directions from "././Directions/DirectionsIndex";
 const contries = require("../country-by-name")
+
 
 @inject("user")
 @observer
@@ -30,7 +31,7 @@ class MyTrips extends Component {
         const userName = localStorage.getItem("user")
         let index = event.target.getAttribute("index")        
         let name = event.target.getAttribute("name")
-        
+
         for(let m in this.props.user.user.Trips[index].type){
         if(m ==name){
             let user = this.props.user.user
@@ -87,12 +88,12 @@ class MyTrips extends Component {
                       <div className='trip'>
                     <h4>{m.address}</h4>
                     <div id="grid">
-                    <h5>Your interest</h5>
-                    <h5>Your places</h5>
+                    <h5> My interest</h5>
+                    <h5> My places</h5>
                     <div className="interest">{this.type(m)}</div>
                     <div className="places">{this.top(m)}</div>
-                  
-
+                    <div>x</div>
+                    <div id="directions"><Directions data={m.top} center={m} /></div>
                     </div>
                     <a className="waves-effect waves-light btn-small"><i class="fas fa-route"></i>  Start Travel to {m.address}</a>
                     </div>
@@ -105,7 +106,4 @@ class MyTrips extends Component {
 
 }
 export default MyTrips;
-        
-// [{name: 'Japan' , places: ['Tokyo Tower' , 'akibara'] , dates: '21.3'} ,
-// {name: 'China' , places: ['Church' , 'akibara'] , dates: '21.4'}]
 

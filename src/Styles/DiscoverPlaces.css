@@ -2,8 +2,11 @@
 body{
    width:100%;
 }
+
+#button{
+   margin-top: 2em;
+}
 #text{
-   /* margin-left: -28em;  */
   background-color: silver;
   /* margin-bottom: 2em; */
   width: 85vw;
@@ -19,22 +22,22 @@ body{
       background-position: center;
       font-family: "Palatino Linotype";
       /* font-size: 0.5em; */
-}
+   position: absolute; 
+   right:10vw;
+   }
 
 .container #title{
    font-size: 5vh;
    font-family: "Palatino Linotype";
    font-weight: 500;
    margin-left: 20%;
-   /* position: relative; 
-   right:25vw; */
-}
-.Input {
-   margin-left: 60vw;
+   position: relative; 
+   right:25vw;
+  margin-bottom: 10vh;
 }
 
+
  #box {
-     
    margin-left: 40vw;
 }
 .container{

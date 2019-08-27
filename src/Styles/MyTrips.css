@@ -5,8 +5,12 @@ body{
 }
 .addTrip {
    margin-left: 1vw;
-   margin-top: 5vh;
+   /* margin-top: 5vh; */
 }
+#directions{
+margin-bottom: -10vh;
+}
+
 .titleMyTrip{
    padding: 2%;
    font-size: 5vh;
