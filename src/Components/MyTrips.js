@@ -30,15 +30,16 @@ class MyTrips extends Component {
         const userName = localStorage.getItem("user")
         let index = event.target.getAttribute("index")        
         let name = event.target.getAttribute("name")
-console.log(name)
-console.log(index)
-console.log(this.props.user.user.Trips[index].type(m=>m)
-        // let t = this.props.user.user.Trips[index].type.filter(m=> m !== name )
-        // let user = this.props.user.user
-        // user.Trips[index].top=t
-        // let a = await Axios.put(`http://localhost:8080/addTrip/${userName}`, user)
-        // return(a.data)
-    }
+        
+        for(let m in this.props.user.user.Trips[index].type){
+        if(m ==name){
+            let user = this.props.user.user
+            user.Trips[index].type[m]=false
+            let a = await Axios.put(`http://localhost:8080/addTrip/${userName}`, user)
+        return(a.data)
+}
+}}
+
     sliceTop = async(event) => {
         const userName = localStorage.getItem("user")
         let index = event.target.getAttribute("index")        
