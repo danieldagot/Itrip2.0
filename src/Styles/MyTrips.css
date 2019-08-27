@@ -7,6 +7,11 @@ body{
    margin-left: 1vw;
    /* margin-top: 5vh; */
 }
+#X{
+   position: absolute;
+   left: 10px;
+   margin:3vh;
+}
 #directions{
 margin-bottom: -10vh;
 }
@@ -26,6 +31,9 @@ margin-bottom: -10vh;
   display: grid;
   grid-gap: 3vh 3vw;
   grid-template-columns: repeat(2, 1fr);
+
+  grid-template-rows: repeat(2, 1fr);
+
   height:70vh;
   width: 70vw;
   border-radius: 20px;
@@ -34,6 +42,7 @@ margin-bottom: -10vh;
       /* box-shadow: 0px 0px 30px 11px #ffffff;      */
 }
 .trip{
+   position: relative;
    background-color: silver;
   /* margin-bottom: 2em; */
   width: auto;

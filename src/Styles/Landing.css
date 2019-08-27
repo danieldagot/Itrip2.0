@@ -36,8 +36,8 @@ body{
  }
  
  .container{
-   position: absolute;
-   right:20%;
+   position: relative;
+   left:50%;
  }
  /* .table {
   font-size: 1.5em;

@@ -88,8 +88,8 @@ class AddTrip extends Component {
                   </label>
                 </p>
                 <p>
-                  <label for="chk-demo5" onClick={this.changeHome}>
-                    <input type="checkbox" />
+                  <label for="chk-demo6" onClick={this.changeHome}>
+                    <input type="checkbox" id="chk-demo6"/>
                     <span id="Food" className="checkbox">Food</span>
                   </label>
                 </p>
