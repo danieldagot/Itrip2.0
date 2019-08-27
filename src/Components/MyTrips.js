@@ -20,7 +20,7 @@ class MyTrips extends Component {
   async componentDidMount() {
     await this.props.user.fetchProjects();
     this.setState({ trips: this.props.user.user.Trips }, function() {
-      console.log(this.state.trips);
+    //   console.log(this.state.trips);
     });
   }
 
@@ -42,15 +42,31 @@ class MyTrips extends Component {
     }
   };
 
+//   sliceTrip=async event =>{
+//     const userName = localStorage.getItem("user");
+//     let index = event.target.getAttribute("index");
+//     let name = event.target.getAttribute("name");
+
+//     console.log(this.props.user.user.Trips[index].address)
+//     for (let m in this.props.user.user.Trips[index].address) {
+//         if (m !== name) {
+//             consol
+//               let user = this.props.user.user;
+//               user.Trips[index].address=m;
+//           let a = await Axios.put(
+//             `http://localhost:8080/addTrip/${userName}`,
+//             user
+//           );
+//           return a.data;
+//           }}
+//   }
+
   sliceTop = async event => {
     const userName = localStorage.getItem("user");
     let index = event.target.getAttribute("index");
     let name = event.target.getAttribute("name");
 
-    let t = this.props.user.user.Trips[index].top.filter(
-      m => m["name"] !== name
-    );
-    console.log(this.props.user.user.Trips[index]);
+    let t = this.props.user.user.Trips[index].top.filter(m => m["name"] !== name)
     let user = this.props.user.user;
     user.Trips[index].top = t;
     let a = await Axios.put(`http://localhost:8080/addTrip/${userName}`, user);
@@ -80,7 +96,6 @@ class MyTrips extends Component {
 
   top = obj => {
     let Top = [];
-    console.log(obj);
 
     for (const key in obj["top"]) {
       if (obj["top"][key]) {
@@ -111,7 +126,7 @@ class MyTrips extends Component {
           <div className="Trips">
             {trip.map(m => (
               <div className="trip">
-                <i id="X" class="fas fa-times"></i>
+                <i id="X" index={m["index"]} name={m}  class="fas fa-times"></i>
                 <h4>{m.address}</h4>
                 <div id="grid">
                   <h5> My interest</h5>

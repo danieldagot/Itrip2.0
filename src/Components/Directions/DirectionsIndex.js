@@ -33,7 +33,6 @@ class Directions extends Component {
       a = m.geometry.location
       // a = m.geometry.location.lat + "," + m.geometry.location.lng +"," + m.name
 
-      console.log(a);
 
       lcation.push(a)
 
@@ -48,12 +47,10 @@ class Directions extends Component {
       b.to = lcation[index + 1]
       dire.push(b)
     }
-    console.log(this.props.center.latLng);
 
     this.setState({ top: dire }, function () { })
-    this.setState({ center: this.props.center.latLng }, function () { console.log(this.state) })
+    this.setState({ center: this.props.center.latLng }, function () {  })
     this.setState({ bool: true }, function () {
-      //  console.log(this.state.user);
 
     })
   }
@@ -65,7 +62,7 @@ class Directions extends Component {
     let user = data.data
     let trip = { direction: this.props.data, center: this.props.center }
     user.Trips.push(trip)
-    console.log(userName);
+    // console.log(userName);
     let a = await axios.put(`http://localhost:8080/addTrip/${userName}`, user)
   }
 
@@ -77,7 +74,7 @@ class Directions extends Component {
     let user = data.data
     let trip = { direction: this.props.data, center: this.props.center }
     user.Trip = trip
-    console.log(userName);
+    // console.log(userName);
     let a = await axios.put(`http://localhost:8080/addTrip/${userName}`, user)
     window.location.pathname = '/Home'
   }
@@ -88,7 +85,7 @@ class Directions extends Component {
     let user = data.data
     let trip = {}
     user.Trip = trip
-    console.log(userName);
+    // console.log(userName);
     let a = await axios.put(`http://localhost:8080/addTrip/${userName}`, user)
     window.location.pathname = '/Home'
   }

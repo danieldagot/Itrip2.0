@@ -61,7 +61,12 @@ class Landing extends Component {
                    </datalist>
                </div>
                <div  className="input">Gender :
-               <input name="Gender" onChange={this.addNewInput} placeholder="Your Gender" />
+               <input name="Gender" list="genders" onChange={this.addNewInput} placeholder="Your Gender" />
+               <datalist id="genders">
+                      < option value="Female" placeholder="Female" />
+                      < option value="Male" placeholder="Male" />
+
+                   </datalist>
                </div>
                {/* <button onClick={this.addClient}>Continue!</button> */}
                <a onClick={this.addClient} id="Continue" class="waves-effect waves-light btn-large"><i class="material-icons right">flight_takeoff</i>Continue!</a>
