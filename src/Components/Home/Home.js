@@ -160,7 +160,7 @@ class Home extends React.Component {
         <div id={this.state.click ? "mapW" : "mapW2"}>
           <span>
             {" "}
-          {this.state.user.Trip ? <Directions data={this.state.user.Trip.top} center={this.state.user.Trip} /> : <MapWrapped state={this.state} />  }
+          {this.state.click? <MapWrapped state={this.state} />: this.state.user.Trip ? <Directions data={this.state.user.Trip.top} center={this.state.user.Trip} /> : <MapWrapped state={this.state} />  }
           {/* / <MapWrapped state={this.state} /> */}
             <a
               onClick={this.getNav}
