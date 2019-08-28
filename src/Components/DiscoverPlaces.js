@@ -38,7 +38,7 @@ class DiscoverPlaces extends Component {
  render() {
      return (
         <div className='container'>
-        <div id='title'>Here you can search , get information and add to your trip places in the world</div>
+       <span className="rapTitle"><div id='title'>Here you can search , get information and add to your trip places in the world</div></span> 
         <div id="all" >
        <PlacesAutocomplete
          value={this.state.address}
@@ -47,7 +47,7 @@ class DiscoverPlaces extends Component {
           onKeyDown={this.addItem}
         >
          {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
-           <div >
+           <div id="discoverInput">
              <input
                {...getInputProps({
                  placeholder: 'Search Places ...',

@@ -1,11 +1,16 @@
 body{
   /* background: linear-gradient(to bottom, rgba(255,255,255,0.15) 0%, rgba(0,0,0,0.15) 100%), radial-gradient(at top center, rgba(255,255,255,0.40) 0%, rgba(0,0,0,0.40) 120%) #989898;  background-blend-mode: multiply,multiply; */
   height: 100vh;
+
   text-align: center;
-  background:url(https://images.pexels.com/photos/210186/pexels-photo-210186.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
+
+  background:url(https://images.pexels.com/photos/210186/pexels-photo-210186.jpeg?auto=compress&cs=tinysrgb&dpr=2&);
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: auto;
+
  }
+
+
  #MAIN{
  text-align: center;
  margin-top: -20vh;
@@ -13,19 +18,27 @@ body{
  font-family: "Palatino Linotype";
  }
  .input {
-  width: 20vw;
-  color: rgb(25, 110, 25);
-  font-size: 4vh;
-  margin-left: 20px;
+  width: 30vw;
+  color: black ; 
+  font-weight: 300;
+  font-size: 5vh;
+  margin-left: 7vw;
+  margin-top: 3vh;
  }
  .input input::placeholder{
+   padding: 2vh;
  font-size: 3vh;
+ color: black;
  }
  .add{
+   justify-items: center ; 
  display:grid;
  grid-template-columns: repeat(2,1fr);
- margin-left: 40vh;
  font-family: "Palatino Linotype";
+ margin-top:25%;
+color: black ;
+margin-left: -27%;
+ position: absolute;
  }
  .button {
   margin-left: 50vw;
@@ -34,71 +47,17 @@ body{
  margin-left: 50%;
  font-family: "Palatino Linotype";
  }
- 
  .container{
-   position: relative;
-   left:50%;
+   position: absolute;
  }
- /* .table {
-  font-size: 1.5em;
-  font-family: PT Sans;
-  margin-left:35vw;zzzz
- } */
- .Error {
-  color: rgb(3, 82, 172);
-  font-size: 1rem;
-  font-weight: bold;
- }
- #MainTitle{
+ #MainTitleLanding{
+   position:  absolute ; 
+   justify-content: center ;
+   justify-items: center ;
  font-family: "Palatino Linotype";
  font-weight: 600;
- }
- /*
- #healthChoice {
-  color: white;
- }
- #slideResult {
-  color: white;
-  font-size: 1rem;
- }
- */
- /* .button{
-  height: 35px;
-  width: 100px;
-  border:none;
-  border-radius: 40px;
-  background-color: rgb(27, 149, 248);
-  color: white;
-  cursor: pointer;
- } */
- #heart {
-  color: rgb(196, 81, 81);
-  animation: heartbeat 1s infinite;
- }
- @keyframes heartbeat
- {
-  0%
-  {
-    transform: scale( .75 );
-  }
-  20%
-  {
-    transform: scale( 1 );
-  }
-  40%
-  {
-    transform: scale( .75 );
-  }
-  60%
-  {
-    transform: scale( 1 );
-  }
-  80%
-  {
-    transform: scale( .75 );
-  }
-  100%
-  {
-    transform: scale( .75 );
-  }
+ /* margin-left:-40%;
+ margin-top: -5%; */
+
+ font-size: 8vh;
  }

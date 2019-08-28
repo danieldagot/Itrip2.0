@@ -44,15 +44,15 @@ class Landing extends Component {
    render() {
        return(
         <div className='container'>
-           <div id="MainTitle">
-               Hey There, Welcome to<br></br><img src = 'https://media.giphy.com/media/h81EQBKGXH8L5i3nv3/giphy.gif' ></img>
+           <div id="MainTitleLanding">
+               Hey There, Welcome to<br></br><img src = 'https://media.giphy.com/media/XBFhuEE9yZBXRdxwis/giphy.gif' ></img>
            </div>
            <div className="add">
                <div className="input">Full Name:
                 <input  name="Name" onChange={this.addNewInput} placeholder="Your Name" />
                </div>
                <div className="input">age :
-                <input  name="Age" onChange={this.addNewInput} placeholder="Your Age" />
+                <input  name="Age" onChange={this.addNewInput} placeholder="Your Age" />  
                </div>
                <div className="input">Country :
                 <input  name="Country" list="options" onChange={this.addNewInput} placeholder="Your Country" />
@@ -61,7 +61,12 @@ class Landing extends Component {
                    </datalist>
                </div>
                <div  className="input">Gender :
-               <input name="Gender" onChange={this.addNewInput} placeholder="Your Gender" />
+               <input name="Gender" list="genders" onChange={this.addNewInput} placeholder="Your Gender" />
+               <datalist id="genders">
+                      < option value="Female" placeholder="Female" />
+                      < option value="Male" placeholder="Male" />
+
+                   </datalist>
                </div>
                {/* <button onClick={this.addClient}>Continue!</button> */}
                <a onClick={this.addClient} id="Continue" class="waves-effect waves-light btn-large"><i class="material-icons right">flight_takeoff</i>Continue!</a>
