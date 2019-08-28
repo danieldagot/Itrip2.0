@@ -100,7 +100,7 @@ class Home extends React.Component {
   getNav = async () => {
     console.log(this.state);
 
-    let a = await Axios.put("http://localhost:8080/GooglePlaces", this.state)
+    let a = await Axios.put("/GooglePlaces", this.state)
     console.log(a.data);
 
     this.setState({ top: a.data, click: !this.state.click }, function () {

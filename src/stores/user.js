@@ -11,7 +11,7 @@ export class User {
     this.state = "pending"
     try {
       const userName = localStorage.getItem("user")
-      let data = await axios.get(`http://localhost:8080/user/${userName}`)
+      let data = await axios.get(`/user/${userName}`)
       // after await, modifying state again, needs an actions:
       runInAction(() => {
         this.state = "done"

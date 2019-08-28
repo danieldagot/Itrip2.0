@@ -26,7 +26,7 @@ import {
 //  disc = (p) => {
 //   let p2 = p.replace(" " ,"_")
 //   console.log(p2)
-//   let data = axios.get(`http://localhost:8080/wikipedia/${p2}`)
+//   let data = axios.get(`/wikipedia/${p2}`)
 //   data.then(d => {
 //     this.state.name=d.data.short
 //     debugger

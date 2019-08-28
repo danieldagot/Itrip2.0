@@ -10,13 +10,13 @@ class NavBarHotPlaces extends Component { //now will be the navBar
    }
    componentDidMount = async () => {
     const userName = localStorage.getItem("user")
-    let data = await Axios.get(`http://localhost:8080/user/${userName}`)
+    let data = await Axios.get(`/user/${userName}`)
     let user = data.data
     let trip =  this.props.data 
     let index = user.Trips.length
     trip.index= index
      user.Trips.push(trip)    
-    let a = await Axios.put(`http://localhost:8080/addTrip/${userName}`, user)
+    let a = await Axios.put(`/addTrip/${userName}`, user)
     return(a.data)
       }
    

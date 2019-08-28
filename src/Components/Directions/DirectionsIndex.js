@@ -61,35 +61,35 @@ class Directions extends Component {
   save = async () => {
     const userName = localStorage.getItem("user")
 
-    let data = await axios.get(`http://localhost:8080/user/${userName}`)
+    let data = await axios.get(`/user/${userName}`)
     let user = data.data
     let trip = { direction: this.props.data, center: this.props.center }
     user.Trips.push(trip)
     console.log(userName);
-    let a = await axios.put(`http://localhost:8080/addTrip/${userName}`, user)
+    let a = await axios.put(`/addTrip/${userName}`, user)
   }
 
 
   startTrip = async () => {
     const userName = localStorage.getItem("user")
 
-    let data = await axios.get(`http://localhost:8080/user/${userName}`)
+    let data = await axios.get(`/user/${userName}`)
     let user = data.data
     let trip = { direction: this.props.data, center: this.props.center }
     user.Trip = trip
     console.log(userName);
-    let a = await axios.put(`http://localhost:8080/addTrip/${userName}`, user)
+    let a = await axios.put(`/addTrip/${userName}`, user)
     window.location.pathname = '/Home'
   }
   stopTrip = async () => {
     const userName = localStorage.getItem("user")
 
-    let data = await axios.get(`http://localhost:8080/user/${userName}`)
+    let data = await axios.get(`/user/${userName}`)
     let user = data.data
     let trip = {}
     user.Trip = trip
     console.log(userName);
-    let a = await axios.put(`http://localhost:8080/addTrip/${userName}`, user)
+    let a = await axios.put(`/addTrip/${userName}`, user)
     window.location.pathname = '/Home'
   }
   componentDidMount() {

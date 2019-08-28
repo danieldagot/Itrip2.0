@@ -19,7 +19,7 @@ class DiscoverPlaces extends Component {
      let country = this.state.address
      country.replace(" ","_")
      console.log(this.state.address)
-     let response= await axios.get(`http://localhost:8080/wikipedia/${country}`)
+     let response= await axios.get(`/wikipedia/${country}`)
      console.log(response);
      
       let data =response.data["short"]

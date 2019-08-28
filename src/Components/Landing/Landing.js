@@ -34,7 +34,7 @@ class Landing extends Component {
            "Gender": this.state.Gender,
            'Age': this.state.Age
        }
-       await axios.post("http://localhost:8080/addUser", client).then(function (res) {
+       await axios.post("/addUser", client).then(function (res) {
            console.log(res)
            localStorage.setItem("loged", 1)
            localStorage.setItem("user", res.data.UserName)

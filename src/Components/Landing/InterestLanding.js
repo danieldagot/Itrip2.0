@@ -36,7 +36,7 @@ class InterestLanding extends Component {
         console.log(this.state);
         const userName = localStorage.getItem("user")
 
-        let data = await axios.get(`http://localhost:8080/user/${userName}`)
+        let data = await axios.get(`/user/${userName}`)
         let user = data.data
         console.log(this.state.data);
         let interest = []
@@ -47,13 +47,13 @@ class InterestLanding extends Component {
             }
             
             user.Interest = interest
-            let a = await axios.put(`http://localhost:8080/addIntrest/${userName}`,user)
+            let a = await axios.put(`/addIntrest/${userName}`,user)
             localStorage.setItem("loged", 2)
           
             window.location.pathname = '/Home'
 
         }
-        // await axios.put("http://localhost:8080/addUser", client).then(function (res) {
+        // await axios.put("/addUser", client).then(function (res) {
         //     console.log(res)
         //     localStorage.setItem("loged", 2)
         //     localStorage.setItem("user", res.data.UserName)
