@@ -7,7 +7,7 @@ const path = require('path')
 let PORT = 8080
 const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
-const router = require('./routes/api')
+const router = require('./back-end/routes/api')
 
 // app.use(function (req, res, next) {
 //     res.header('Access-Control-Allow-Origin', '*')
@@ -37,5 +37,5 @@ mongoose.connect( process.env.MONGODB_URI || 'mongodb://localhost/Itrip', {
         res.sendFile(path.join(__dirname, 'build', 'index.html'));
     });
 
-    app.listen(process.env.PORT || PORT);
+    app.listen(process.env.PORT || PORT)
 })
