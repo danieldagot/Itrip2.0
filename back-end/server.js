@@ -4,10 +4,9 @@ const express = require('express')
 const app = express()
 //const port = process.env.PORT
 const path = require('path')
-let port = 8080
+let port = 8080  || process.env.PORT 
 const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
-
 const router = require('./routes/api')
 
 app.use(function (req, res, next) {
@@ -27,7 +26,7 @@ app.use(express.static(path.join(__dirname, 'build')));
 app.use(express.static(path.join(__dirname, 'public/main-layout')))
 app.use(express.static(path.join(__dirname, 'public')))
 
-mongoose.connect('mongodb://localhost/Itrip', {
+mongoose.connect( process.env.MONGODB_URI || 'mongodb://localhost/Itrip', {
     useNewUrlParser: true
 }).then(() => {
     mongoose.set('useFindAndModify', false);
