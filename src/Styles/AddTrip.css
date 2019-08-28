@@ -28,6 +28,6 @@ body{
     background-repeat: no-repeat;
     background-size: cover;
     backface-visibility: 0.5;
-    background-image: url("https://previews.123rf.com/images/denphumi/denphumi1305/denphumi130500124/19911835-natural-green-spring-or-summer-season-abstract-nature-background.jpg")
-/* https://previews.123rf.com/images/denphumi/denphumi1305/denphumi130500124/19911835-natural-green-spring-or-summer-season-abstract-nature-background.jpg */
+    background-image: linear-gradient(-225deg, #DFFFCD 0%, #90F9C4 48%, #39F3BB 100%);
+
 }

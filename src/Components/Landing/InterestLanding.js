@@ -129,6 +129,7 @@ class InterestLanding extends Component {
             Beauty{" "}
           </div>
         </div>
+        <div className="buttonIntetrst" >
         <button
           onClick={this.next}
           id="Next"
@@ -139,6 +140,7 @@ class InterestLanding extends Component {
           Next
           <i class="material-icons right">send</i>
         </button>
+        </div>
       </div>
     );
   }

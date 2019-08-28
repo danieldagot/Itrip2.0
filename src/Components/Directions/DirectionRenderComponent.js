@@ -84,7 +84,7 @@ class DirectionRenderComponent extends Component {
           clearInterval(refreshIntervalId);
         }
       }
-    }, 1000);
+    }, 100);
   };
   render() {
     let originMarker = null;
