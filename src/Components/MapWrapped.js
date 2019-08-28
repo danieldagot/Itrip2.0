@@ -70,10 +70,10 @@ import {
                   setSelectedPark(place);
 
                 }}
-                icon={{
-                  url: `/skateboarding.svg`,
-                  scaledSize: new window.google.maps.Size(25, 25)
-                }}
+                // icon={{
+                //   url: `/skateboarding.svg`,
+                //   scaledSize: new window.google.maps.Size(25, 25)
+                // }}
                 
               />
             )

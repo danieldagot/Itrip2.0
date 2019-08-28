@@ -96,7 +96,7 @@ class MyTrips extends Component {
       if (obj["type"][key]) {
         interest.push(
           <div>
-            {key} <br></br>
+            {key} {" "}
             <i
               id="minus"
               name={key}
@@ -116,7 +116,7 @@ class MyTrips extends Component {
       if (obj["top"][key]) {
         Top.push(
           <div>
-            {obj["top"][key]["name"]} <br></br>{" "}
+            {obj["top"][key]["name"]} {" "}
             <i
               name={obj["top"][key]["name"]}
               index={obj["index"]}
