@@ -4,7 +4,7 @@ const express = require('express')
 const app = express()
 //const port = process.env.PORT
 const path = require('path')
-let PORT = 8080  || process.env.PORT 
+let PORT = 8080
 const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
 const router = require('./routes/api')
@@ -21,10 +21,10 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({
     extended: false
 }))
-app.use(express.static(path.join(__dirname, 'build')));
+// app.use(express.static(path.join(__dirname, 'build')));
 
-app.use(express.static(path.join(__dirname, 'public/main-layout')))
-app.use(express.static(path.join(__dirname, 'public')))
+// app.use(express.static(path.join(__dirname, 'public/main-layout')))
+// app.use(express.static(path.join(__dirname, 'public')))
 
 mongoose.connect( process.env.MONGODB_URI || 'mongodb://localhost/Itrip', {
     useNewUrlParser: true
@@ -36,5 +36,6 @@ app.use(express.static(path.join(__dirname, 'build')));
     app.get('*', function (req, res) {
         res.sendFile(path.join(__dirname, 'build', 'index.html'));
     });
+
     app.listen(process.env.PORT || PORT);
 })
