@@ -133,7 +133,7 @@ class MyTrips extends Component {
     let trip = this.state.trips;
     console.log(this.props.user.user);
     return (
-      <div>
+      <div className="MyTripsContainer">
         <div className="titleMyTrip">
           Here You can manage all your trips and update:
         </div>

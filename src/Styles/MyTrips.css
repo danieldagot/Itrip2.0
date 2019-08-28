@@ -11,6 +11,7 @@ body{
    margin:2vh;
  }
  #directions{
+    height: 70%;
  margin-bottom: -10vh;
  }
  .titleMyTrip{
@@ -64,6 +65,18 @@ body{
    grid-template-columns: repeat(4, 1fr);
    margin:1vh;
  }
+
+ .MyTripsContainer{
+   position: absolute;
+   width: 100%;
+   height: 200%;
+   top: 8.3%;
+   left: 0;
+   background-position: 100%;
+   background-position: center;
+   background-size: cover;
+   background-image: linear-gradient(-225deg, #DFFFCD 0%, #90F9C4 48%, #39F3BB 100%);
+}
  .btnStart{
    margin-left: 200%;
    color: rgb(8, 189, 134);

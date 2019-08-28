@@ -52,7 +52,6 @@ class App extends Component {
               <li> <Link to="/">Home</Link></li>
               <li><Link to="/MyTrips">My Trips</Link></li>
               <li><Link to="/DiscoverPlaces">Discover Places</Link></li>
-              <li><Link to="/MyProgress">My Progress</Link></li>
               <li><Link to="/Landing">Landing</Link></li>
               <li><Link to="/InterestLanding">InterestLanding</Link></li>
 

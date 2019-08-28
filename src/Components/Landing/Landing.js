@@ -52,7 +52,7 @@ class Landing extends Component {
                 <input  name="Name" onChange={this.addNewInput} placeholder="Your Name" />
                </div>
                <div className="input">age :
-                <input  name="Age" onChange={this.addNewInput} placeholder="Your Age" />
+                <input  name="Age" onChange={this.addNewInput} placeholder="Your Age" />  
                </div>
                <div className="input">Country :
                 <input  name="Country" list="options" onChange={this.addNewInput} placeholder="Your Country" />

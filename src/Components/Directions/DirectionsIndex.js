@@ -139,9 +139,9 @@ class Directions extends Component {
 export default compose(
   withProps({
     googleMapURL: G_API_URL,
-    loadingElement: <div style={{ height: `70%` }} />,
-    containerElement: <div style={{ height: `50vh` }} />,
-    mapElement: <div style={{ height: `70%`, width: `100%` }} />
+    loadingElement: <div style={{ height: `100%` }} />,
+    containerElement: <div style={{ height: `100%` }} />,
+    mapElement: <div style={{ height: `100%`}} />
   }), withScriptjs, withGoogleMap)(Directions);
 
 
