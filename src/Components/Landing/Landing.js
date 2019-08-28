@@ -68,9 +68,10 @@ class Landing extends Component {
 
                    </datalist>
                </div>
+               </div>
                {/* <button onClick={this.addClient}>Continue!</button> */}
                <a onClick={this.addClient} id="Continue" class="waves-effect waves-light btn-large"><i class="material-icons right">flight_takeoff</i>Continue!</a>
-           </div>
+          
        </div>
         ) }
 }
