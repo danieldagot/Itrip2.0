@@ -83,6 +83,7 @@ class Directions extends Component {
     // console.log(userName);
     let a = await axios.put(`http://localhost:8080/addTrip/${userName}`, user)
     //window.location.pathname = '/Home'
+    window.location.replace("http://localhost:3000/Home");
   }
   stopTrip = async () => {
     const userName = localStorage.getItem("user")

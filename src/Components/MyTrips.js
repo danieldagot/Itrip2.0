@@ -148,6 +148,7 @@ class MyTrips extends Component {
                 <div className='places'><div  id='myPlacesTitle'> My places</div>{this.top(m)}</div>
                   <div id="directions">
                     <Directions data={m.top} center={m} />
+                    
                   </div>
                   </div>
                 <div className='addInput'>

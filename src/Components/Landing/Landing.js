@@ -54,7 +54,7 @@ class Landing extends Component {
                <div className="input">age :
                 <input  name="Age" onChange={this.addNewInput} placeholder="Your Age" />  
                </div>
-               <div className="input">Country :
+               <div className="input"> my Country :
                 <input  name="Country" list="options" onChange={this.addNewInput} placeholder="Your Country" />
                    <datalist id="options">
                        {contries.map(country => < option value={country.country} placeholder={country.country} />)}
