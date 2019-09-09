@@ -10,6 +10,8 @@ import PlacesAutocomplete, {
   getLatLng,
 } from 'react-places-autocomplete';
 import { observer, inject } from "mobx-react";
+const URL_KEY=""
+
 @inject("user")
 @observer
 class SearchAllPlaces extends Component {
@@ -53,7 +55,7 @@ class SearchAllPlaces extends Component {
       
     });
     const userName = localStorage.getItem("user");
-    let a = await Axios.put(`http://localhost:8080/addTrip/${userName}`, user);
+    let a = await Axios.put(`${URL_KEY}/addTrip/${userName}`, user);
     await this.props.user.fetchProjects();
     
   }

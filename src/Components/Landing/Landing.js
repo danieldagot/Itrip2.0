@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import '../../Styles/Landing.css'
 import axios from "axios"
-// import Options from './Options'
+// const URL_KEY="http://localhost:8080"const contries = require("../../country-by-name")
+const URL_KEY=""
 const contries = require("../../country-by-name")
+
 class Landing extends Component {
    constructor() {
        super()
@@ -34,7 +36,7 @@ class Landing extends Component {
            "Gender": this.state.Gender,
            'Age': this.state.Age
        }
-       await axios.post("http://localhost:8080/addUser", client).then(function (res) {
+       await axios.post(`${URL_KEY}/addUser`, client).then(function (res) {
            console.log(res)
            localStorage.setItem("loged", 1)
            localStorage.setItem("user", res.data.UserName)
