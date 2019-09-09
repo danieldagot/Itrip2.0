@@ -8,6 +8,8 @@ const user = require("../mongoose/models/user")
 //const moment = require("moment")
 const request = require("request")
 const bodyParser = require('body-parser')
+app.use(express.static(path.join(__dirname, 'build')))
+
 router.use(bodyParser.json())
 router.use(bodyParser.urlencoded({ extended: false }))
 
@@ -148,80 +150,11 @@ router.get('/getTrips/:userName', (req, res) => {
 
 
 
+app.get('*', function (req, res) {
+    res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
 
 
 module.exports = router
 
 
-
-// https://maps.googleapis.com/maps/api/staticmap?center=Brooklyn+Bridge,New+York,NY&zoom=3&size=600x300&maptype=roadmap
-// &markers=color:blue%7Clabel:S%7C40.702147,-74.015794&markers=color:green%7Clabel:G%7C40.711614,-74.012318
-// &markers=color:red%7Clabel:C%7C40.718217,-73.998284
-// &key=AIzaSyCHJL5eNLo3w6kFDG6WWRPZqMCQzEzQDmE
-
-
-//https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=32.062,34.7735&radius=1500&type=restaurant&keyword=cruise&key=AIzaSyCHJL5eNLo3w6kFDG6WWRPZqMCQzEzQDmE
-
-/**
- *
- *
- *
- * const mongoose = require( 'mongoose' )
-const Schema = mongoose.Schema
-
-const userSchema = new Schema( {
-    name : String,
-    age: Number,
-    activity : Number,
-    height : Number,
-    weight : Number,
-    sex : Number,
-    bmi : Number,
-    bmr : Number,
-    cal : Number,
-    activity : Number,
-    condition: String ,
-    recomandetCal : Number,
-    saveDate : String ,
-
-} )
-
-// const ColorSchema = new Schema( {
-//     name: String,
-//     hexCode: String,
-//     rgb: RGBColor
-// } )
-
- const user = mongoose.model( 'user', userSchema )
-
-module.exports = user
-
- *
- */
-
-
- // router.put('/clients', (req, res) => {
-//     let data = req.body
-//     let id = data.id
-//     user.findOneAndUpdate({
-//         _id: id
-//     }, data, {
-//         upsert: true
-//     }, function (err, doc) {
-//         return res.send(doc);
-//     })
-// })
-
-// router.put('/client', (req, res) => {
-//     let data = req.body
-//     let id = data._id
-//     client.findOneAndUpdate({
-//         _id: id
-//     }, data, {
-//         upsert: true
-//     }, function (err, doc) {
-
-
-//         return res.send(doc);
-//     })
-// })
