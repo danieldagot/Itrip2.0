@@ -8,7 +8,13 @@
 }
 .gm-style-iw {
     width: 30vh; 
-    min-height: 8vh;  }
+    min-height: 8vh; 
+ }
+/* 
+ .btn-floating{
+     position: relative;
+     top:1vh;
+ } */
 
 #infoWindow{
     font-size: 1.8vh;
@@ -30,6 +36,10 @@ body{
     
   }
 
+  .all{
+      position: absolute;
+        top:21.6vh;
+  }
    #mapW{
 
      width: 80vw;
@@ -49,6 +59,7 @@ body{
    #NavBarHotPlaces{
     /* float: right; */
     margin-left: 100%;
+
    }
 
    #navBar{
@@ -61,4 +72,10 @@ body{
     margin-top: 2%;
 
     /* margin-bottom: 3vh; */
+}
+
+.location-search-input{
+    position: relative;
+    left:3vh;
+    top:3vh;
 }

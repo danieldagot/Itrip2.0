@@ -9,6 +9,7 @@ const userSchema = new Schema({
   "Country": String,
   "Trips": [],
   "Xp": { type: Number, default: 0 },
+  "index": { type: Number, default: 0 },
   "Tripnum": { type: Number, default: 0 },
   "Interest" : [String],
  "Trip" : {}

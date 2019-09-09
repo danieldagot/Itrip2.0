@@ -46,13 +46,12 @@ class App extends Component {
         <nav>
           <div className="nav-wrapper">
 
-            <a href="#" className="brand-logo right"><img src='https://media.giphy.com/media/h81EQBKGXH8L5i3nv3/giphy.gif' width='150px' height='70px'></img></a>
+            <a href="#" className="brand-logo right"><img src='https://media.giphy.com/media/XBFhuEE9yZBXRdxwis/giphy.gif' width='150px' height='70px'></img></a>
 
             <ul id="nav-mobile" className="left hide-on-med-and-down">
               <li> <Link to="/">Home</Link></li>
               <li><Link to="/MyTrips">My Trips</Link></li>
               <li><Link to="/DiscoverPlaces">Discover Places</Link></li>
-              <li><Link to="/MyProgress">My Progress</Link></li>
               <li><Link to="/Landing">Landing</Link></li>
               <li><Link to="/InterestLanding">InterestLanding</Link></li>
 
