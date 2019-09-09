@@ -43,7 +43,7 @@ mongoose.connect('mongodb://localhost/Itrip', {
         res.sendFile(path.join(__dirname, 'build', 'index.html'));
     });
     
-    mongoose.connect(process.env.MONGO_URI||"mongodb://localhost/crm", { useNewUrlParser: true }).then(() => {
+    mongoose.connect(process.env.MONGO_URI||"mongodb://localhost/Itrip", { useNewUrlParser: true }).then(() => {
         app.listen(port, function (err, res) {
             console.log("the server runs on port " + port)
         })
