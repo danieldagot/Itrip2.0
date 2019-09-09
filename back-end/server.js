@@ -29,24 +29,18 @@ app.use(bodyParser.urlencoded({
 app.use(express.static(path.join(__dirname, 'public/main-layout')))
 app.use(express.static(path.join(__dirname, 'public')))
 
+app.get('*', function (req, res) {
+    res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
+
+
 mongoose.connect('mongodb://localhost/Itrip', {
     useNewUrlParser: true
 }).then(() => {
     mongoose.set('useFindAndModify', false);
-
     app.use('/', router)
-
-    
-
-
-    app.get('*', function (req, res) {
-        res.sendFile(path.join(__dirname, 'build', 'index.html'));
-    });
-    
-    mongoose.connect(process.env.MONGO_URI||"mongodb://localhost/Itrip", { useNewUrlParser: true }).then(() => {
-        app.listen(port, function (err, res) {
-            console.log("the server runs on port " + port)
-        })
-    })
+    app.listen(port, function (err, res) {
+        console.log("the server runs on port " + port)
+    }) 
 
 })
