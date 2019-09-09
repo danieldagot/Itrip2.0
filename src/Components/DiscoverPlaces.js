@@ -6,6 +6,8 @@ import PlacesAutocomplete, {
  geocodeByAddress,
  getLatLng,
 } from 'react-places-autocomplete';
+const URL_KEY=""
+
 class DiscoverPlaces extends Component {
  constructor() {
      super()
@@ -19,7 +21,7 @@ class DiscoverPlaces extends Component {
      let country = this.state.address
      country.replace(" ","_")
      console.log(this.state.address)
-     let response= await axios.get(`http://localhost:8080/wikipedia/${country}`)
+     let response= await axios.get(`${URL_KEY}/wikipedia/${country}`)
      console.log(response);
      
       let data =response.data["short"]

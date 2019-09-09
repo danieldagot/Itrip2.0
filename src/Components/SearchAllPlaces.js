@@ -8,6 +8,7 @@ import PlacesAutocomplete, {
    geocodeByAddress,
    getLatLng,
 } from 'react-places-autocomplete';
+
 class SearchAllPlaces extends Component {
      constructor(props) {
        super(props);

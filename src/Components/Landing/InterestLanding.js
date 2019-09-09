@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom'
 import '../../Styles/InterestLanding.css'
 
 import axios from "axios"
+const URL_KEY=""
+
 class InterestLanding extends Component {
     constructor() {
         super()
@@ -36,7 +38,7 @@ class InterestLanding extends Component {
         console.log(this.state);
         const userName = localStorage.getItem("user")
 
-        let data = await axios.get(`http://localhost:8080/user/${userName}`)
+        let data = await axios.get(`${URL_KEY}/user/${userName}`)
         let user = data.data
         console.log(this.state.data);
         let interest = []
@@ -47,7 +49,7 @@ class InterestLanding extends Component {
             }
             
             user.Interest = interest
-            let a = await axios.put(`http://localhost:8080/addIntrest/${userName}`,user)
+            let a = await axios.put(`${URL_KEY}/addIntrest/${userName}`,user)
             localStorage.setItem("loged", 2)
           
             window.location.pathname = '/Home'

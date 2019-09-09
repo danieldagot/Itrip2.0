@@ -6,6 +6,8 @@ import Axios from "axios";
 import { observer, inject } from "mobx-react";
 import Directions from "././Directions/DirectionsIndex";
 const contries = require("../country-by-name");
+const URL_KEY=""
+
 
 @inject("user")
 @observer
@@ -34,7 +36,7 @@ class MyTrips extends Component {
         let user = this.props.user.user;
         user.Trips[index].type[m] = false;
         let a = await Axios.put(
-          `http://localhost:8080/addTrip/${userName}`,
+          `${URL_KEY}/addTrip/${userName}`,
           user
         );
         return a.data;
@@ -53,7 +55,7 @@ class MyTrips extends Component {
     console.log(this.props.user.user.Trips[index]);
     let user = this.props.user.user;
     user.Trips[index].top = t;
-    let a = await Axios.put(`http://localhost:8080/addTrip/${userName}`, user);
+    let a = await Axios.put(`${URL_KEY}/addTrip/${userName}`, user);
     return a.data;
   };
 
