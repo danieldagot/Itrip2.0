@@ -145,3 +145,8 @@ export default compose(
     containerElement: <div style={{ height: `100%` }} />,
     mapElement: <div style={{ height: `100%`}} />
   }), withScriptjs, withGoogleMap)(Directions);
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 7a18bf68e8dc0f47e0b766566f3dd7f9a040f8c5

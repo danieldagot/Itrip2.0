@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
 import '../../Styles/Landing.css'
 import axios from "axios"
+<<<<<<< HEAD
 // const URL_KEY="http://localhost:8080"
 // const contries = require("../../country-by-name")
+=======
+// const URL_KEY="http://localhost:8080"const contries = require("../../country-by-name")
+>>>>>>> 7a18bf68e8dc0f47e0b766566f3dd7f9a040f8c5
 const URL_KEY=""
 const contries = require("../../country-by-name")
 

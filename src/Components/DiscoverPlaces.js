@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import '../Styles/DiscoverPlaces.css'
 import axios from "axios"
-// import '../Styles/Home.css'
 import PlacesAutocomplete, {
- geocodeByAddress,
- getLatLng,
+  geocodeByAddress,
+  getLatLng,
 } from 'react-places-autocomplete';
 const URL_KEY=""
+<<<<<<< HEAD
 
+=======
+>>>>>>> 7a18bf68e8dc0f47e0b766566f3dd7f9a040f8c5
 class DiscoverPlaces extends Component {
  constructor() {
      super()
@@ -20,7 +22,10 @@ class DiscoverPlaces extends Component {
   getData = async () => {
      let country = this.state.address
      country.replace(" ","_")
+<<<<<<< HEAD
      console.log(this.state.address)
+=======
+>>>>>>> 7a18bf68e8dc0f47e0b766566f3dd7f9a040f8c5
      let response= await axios.get(`${URL_KEY}/wikipedia/${country}`)
      console.log(response);
      
@@ -40,7 +45,7 @@ class DiscoverPlaces extends Component {
  render() {
      return (
         <div className='container'>
-        <div id='title'>Here you can search , get information and add to your trip places in the world</div>
+       <span className="rapTitle"><div id='title'>Here you can search , get information and add to your trip places in the world</div></span> 
         <div id="all" >
        <PlacesAutocomplete
          value={this.state.address}
@@ -49,7 +54,7 @@ class DiscoverPlaces extends Component {
           onKeyDown={this.addItem}
         >
          {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
-           <div >
+           <div id="discoverInput">
              <input
                {...getInputProps({
                  placeholder: 'Search Places ...',
