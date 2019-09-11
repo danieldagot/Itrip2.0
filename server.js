@@ -4,7 +4,7 @@ const express = require('express')
 const app = express()
 //const port = process.env.PORT
 const path = require('path')
-let port = process.env.PORT||8089
+let port = 8089
 
 const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
@@ -19,7 +19,7 @@ app.use(function (req, res, next) {
     next()  
 })
 
-app.use(express.static(path.join(__dirname, 'build')))
+app.use(express.static(path.join(__dirname, 'build')));
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({
     extended: false
@@ -34,12 +34,12 @@ app.get('*', function (req, res) {
 });
 
 
-mongoose.connect('mongodb://localhost/Itrip', {
+mongoose.connect(process.env.MONGODB_URI||'mongodb://localhost/Itrip', {
     useNewUrlParser: true
 }).then(() => {
     mongoose.set('useFindAndModify', false);
     app.use('/', router)
-    app.listen(port, function (err, res) {
+    app.listen(process.env.PORT || port, function (err, res) {
         console.log("the server runs on port " + port)
     }) 
 

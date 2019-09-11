@@ -18,6 +18,9 @@ import { KeyObject } from 'crypto';
 import Axios from 'axios';
 import NavBarHotPlaces from "./NavBarHotPlaces"
 import { observer, inject } from 'mobx-react'
+const URL_KEY=""
+
+
 @inject("user")
 @observer
 
@@ -50,7 +53,7 @@ class Test extends React.Component {
     const userName = localStorage.getItem("user")
     console.log(userName);
 
-    let data = await axios.get(`http://localhost:8080/user/${userName}`)
+    let data = await axios.get(`${URL_KEY}/user/${userName}`)
     let user = data.data
     this.setState({ user: user }, function () {
       console.log(this.state.user);
@@ -152,7 +155,7 @@ class Test extends React.Component {
   }
   getNav = async () => {
     console.log(this.state);
-    let a = await Axios.put("http://localhost:8080/GooglePlaces", this.state)
+    let a = await Axios.put(`${URL_KEY}/GooglePlaces`, this.state)
     console.log(a.data);
 
     this.setState({ top: a.data }, function () {

@@ -3,12 +3,15 @@
 
 const GooglePlaces = require("../placesApi")
 const express = require('express')
+const app = express()
 const router = express.Router()
+const path = require('path')
+
 const user = require("../mongoose/models/user")
 //const moment = require("moment")
 const request = require("request")
 const bodyParser = require('body-parser')
-app.use(express.static(path.join(__dirname, 'build')))
+router.use(express.static(path.join(__dirname, 'build')))
 
 router.use(bodyParser.json())
 router.use(bodyParser.urlencoded({ extended: false }))
